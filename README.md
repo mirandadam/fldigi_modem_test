@@ -13,7 +13,21 @@ Whith the modified versions installed:
 
 The modified versions of linsim and fldigi are in https://github.com/mirandadam/fldigi and https://github.com/mirandadam/linsim.
 
+
+To replicate any single data point manually on the computer you use with your radio:
+* You _do not_ need custom versions of FLDIGI and linsim.
+* Get the test data from the files in this repository and paste it as your TX text then add a ^r to the end.
+* Configure your transmit mode.
+* Use the "TX generate" option to record a wav file. You should do this with your radio off.
+* Hit TX. If you remembered to add a ^r to the end of the data FLDIGI will stop transmitting at the end of the message.
+* Disable the "TX generate" checkbox.
+* Use linsim to generate the effect you want on the audio file you just generated.
+* Use the "Playback" option in FLDIGI to try to decode the audio.
+* Compare the decoded text with the original test data.
+
 ## Caveats
 
-* Tested only on Ubuntu 18.04.1. Results should be valid for any installation that FLDIGI runs on.
+* I recommend you run this in a virtual machine with Ubuntu 18.04.1 since custom versions of FLDIGI and linsim are needed and your FLDIGI configuration may be overwritten.
+* This script may overwrite your fldigi configuration (it is not designed to do that, but I may have missed something).
+* Tested only on Ubuntu 18.04.1. Results of the performance of the modems should be valid for any installation that FLDIGI runs on.
 * The modifications to FLDIGI and linsim were made with care, but this test suite is very hacky. One needs be willing to code and must have at least a basic grasp of python to play with it. Configuration is made by editing the main .py file.
