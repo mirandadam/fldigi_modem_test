@@ -41,3 +41,10 @@ He chortled in his joy.
 Did gyre and gimble in the wabe;
 All mimsy were the borogoves,
 And the mome raths outgrabe.
+
++++++++++++++++++++++++++++++++++++++++++++++
+ABCDEFGHIJKLMN OPQRSTUVWXYZ
+abcdefghijklmn opqrstuvwxyz
+0123456789       9876543210
+!@#$%&*()_+-=[]{}\|;:'",.<>/?
++++++++++++++++++++++++++++++++++++++++++++++
