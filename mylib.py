@@ -145,7 +145,6 @@ def open_fldigi(configuration_folder, home_folder):
 
 
 def run_linsim(input_file, output_folder, simulation_file):
-    print("Running linsim. Please close linsim so that simulation can continue.")
     p = subprocess.run(['linsim',
                         '--input_file=' + input_file,
                         '--output_folder=' + output_folder,
