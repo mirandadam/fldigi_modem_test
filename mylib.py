@@ -5,6 +5,7 @@ import os
 import sys
 import re
 import subprocess
+import wave
 
 simulation_file_header = "TITLE,AWGN,S/N,P1,SPREAD_1,OFFSET_1,P2,DELAY_2,SPREAD_2,OFFSET_2,P3,DELAY_3,SPREAD_3,OFFSET_3"
 
@@ -160,3 +161,11 @@ def get_datapoint(fldigi_connection,
                   fn_temp_folder):
     client = fldigi_connection
     assert mode in client.modem.get_names()
+
+
+def get_wav_duration(fn_wavefile):
+    w = wave.open(fn_wavefile, 'rb')
+    framerate = w.getframerate()
+    nframes = w.getnframes()
+    w.close()
+    return float(nframes)/framerate
