@@ -19,6 +19,7 @@ fn_fldigi_home_folder = local_folder+'fldigi_home'+os.sep
 fn_output_folder = local_folder+'audio_temp'+os.sep
 fn_simulation_file = fn_output_folder+'simulation.csv'
 fn_audio = fn_output_folder+'audio.wav'
+fn_message = fn_output_folder+'message.txt'
 fn_modes_to_test = local_folder+'modes_to_test.csv'
 
 assert os.path.exists(fn_test_message)
@@ -38,7 +39,7 @@ if not os.path.exists(fn_macro_file):
     print("Launching fldigi again with updated macro file.")
 
 f = open(fn_macro_file, 'w')
-f.write(t.macro_file_template.format(fn_audio, fn_test_message))
+f.write(t.macro_file_template.format(fn_audio, fn_message))
 f.close()
 
 try:

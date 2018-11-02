@@ -6,6 +6,8 @@ import sys
 import re
 import subprocess
 import wave
+import numpy as np
+#import matplotlib.pyplot as plt
 
 simulation_file_header = "TITLE,AWGN,S/N,P1,SPREAD_1,OFFSET_1,P2,DELAY_2,SPREAD_2,OFFSET_2,P3,DELAY_3,SPREAD_3,OFFSET_3"
 
@@ -169,3 +171,36 @@ def get_wav_duration(fn_wavefile):
     nframes = w.getnframes()
     w.close()
     return float(nframes)/framerate
+
+
+def get_wav_bandwidth(fn_wavefile, center_frequency):
+    '''
+    occupied bandwidth is calculated as the frequency interval which contains
+    95% of the signal power.
+    '''
+    w = wave.open(fn_wavefile, 'r')
+    framerate = w.getframerate()
+    assert w.getsampwidth() == 2  # 16 bits
+    nframes = w.getnframes()
+    signal = np.frombuffer(w.readframes(nframes), dtype='<i2')
+    # power = (signal**2)/nframes  # energy over time
+    fourier = np.fft.fft(signal)
+    freq = np.fft.fftfreq(nframes, d=(1/framerate))
+    # picking only positive frequencies:
+    m = np.abs(fourier[np.where(freq >= 0)])**2  # signal power density
+    f = freq[np.where(freq >= 0)]
+    # folding the spectrum around at the center frequency
+    f[np.where(f > center_frequency)] = 2*center_frequency - f[np.where(f > center_frequency)]
+    # sorting
+    m = m[np.argsort(f)]
+    f = np.sort(f)
+    # calculating cumulative power
+    cumulative_power = np.cumsum(m)
+    cumulative_power = cumulative_power/cumulative_power[-1]
+    low_freq = f[np.where(cumulative_power > 0.05)][0]
+    bw = 2*(center_frequency-low_freq)
+    #print('bw', bw)
+    #plt.plot(f, m)
+    # plt.show()
+    w.close()
+    return bw
