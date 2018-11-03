@@ -54,8 +54,7 @@ for m in modes_to_test:
         fldigi.text.clear_tx()
         fldigi.text.clear_rx()
         fldigi.modem.set_by_name(m)
-        t.run_macro(fldigi, 'generate')
-        t.wait()
+
         shutil.copy(fn_test_message, fn_message)
         if m in ['THOR100', 'THOR16', 'THOR50x1', 'THOR50x2']:
             # Add extra padding
@@ -64,10 +63,7 @@ for m in modes_to_test:
             f.write(test_message.rstrip('\r\n\t '))
             f.write('+'*50)
             f.close()
-        t.run_macro(fldigi, 'cps_test')
-        t.wait_RX(fldigi)
-        t.run_macro(fldigi, 'stop_generate')
-        t.wait_closed(fn_audio)
+        t.generate_wav(fldigi, fn_message, fn_audio, fn_message, fn_audio)
         print('Checking...')
         # decode the file, wait more every failed attempt
         # The wait at the end is necessary for some slower modes

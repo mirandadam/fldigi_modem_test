@@ -8,7 +8,7 @@ import subprocess
 import wave
 import numpy as np
 import shutil
-#import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 simulation_file_header = "TITLE,AWGN,S/N,P1,SPREAD_1,OFFSET_1,P2,DELAY_2,SPREAD_2,OFFSET_2,P3,DELAY_3,SPREAD_3,OFFSET_3"
 
@@ -219,15 +219,74 @@ def run_linsim(input_file, output_folder, simulation_file):
                         '--run_batch=' + simulation_file])
 
 
-def get_datapoint(fldigi_connection,
-                  mode,
-                  test_data,
-                  center_freq,
-                  linsimconf,
-                  fn_wavfile,
-                  fn_temp_folder):
-    client = fldigi_connection
-    assert mode in client.modem.get_names()
+def evaluate_datapoint(client,
+                       test_data_file,
+                       simulation_file,
+                       message_file,
+                       audio_file,
+                       datapoint):
+    '''
+    Evaluate the error rate using the conditions in a datapoint.
+    audio_file and message_file have to be the same as fn_audio and fn_message;
+      these two files have to be in sync with the macros configured in fldigi.
+
+    example_datapoint = {
+        "mode": "PSK500C2",
+        "awgn s/n": -30,
+        "suffix": "AWGN_SNn30.0",
+        "message length": 143,
+        "simulation string": "\"AWGN_SNn30.0\",1,-30,0,0,0,0,0,0,0,0,0,0,0,0",
+        "error rate": None
+    }
+    '''
+
+    assert len(set(datapoint.keys()).symmetric_difference({
+        'mode',
+        'awgn s/n',
+        'suffix',
+        'message length',
+        'simulation string',
+        'error rate'
+    })) == 0
+    assert datapoint['mode'] in client.modem.get_names()
+    simulation_parameters = datapoint['simulation string'].split(',')
+    assert len(simulation_parameters) == 15
+    for p, i in enumerate(simulation_parameters):
+        if p == '':
+            simulation_parameters[i] = '0.0'
+        elif i > 0:
+            simulation_parameters[i] = str(float(simulation_parameters[i]))
+    # copy datapoint to output
+    output = json.loads(json.dumps(datapoint))
+    output['simulation string'] = ','.join(simulation_parameters)
+
+    test_data = open(test_data_file, 'r').read()
+    f = open(simulation_file, 'w')
+    f.write(simulation_file_header+os.linesep)
+    f.write(output['simulation string'])
+    f.close()
+    client.modem.set_by_name(output['mode'])
+    generate_wav(client, test_data_file, audio_file, message_file, audio_file)
+    decoded_data = wav_decode(client, audio_file, audio_file)
+    ml = len(trim(test_data))
+    ed = Levenshtein.distance(trim(test_data), trim(decoded_data))
+    output['message length'] = ml
+    output['error rate'] = ed/ml
+    return output
+
+
+def generate_wav(client, input_file, output_audio, fn_message, fn_audio):
+    client.text.clear_tx()
+    if input_file != fn_message:
+        shutil.copy(input_file, fn_message)
+    run_macro(client, 'generate')
+    wait()
+    run_macro(client, 'cps_test')
+    wait_RX(client)
+    run_macro(client, 'stop_generate')
+    wait_closed(fn_audio)
+    if fn_audio != output_audio:
+        shutil.copy(fn_audio, output_audio)
 
 
 def get_wav_duration(fn_wavefile):
@@ -264,8 +323,8 @@ def get_wav_bandwidth(fn_wavefile, center_frequency):
     cumulative_power = cumulative_power/cumulative_power[-1]
     low_freq = f[np.where(cumulative_power > 0.05)][0]
     bw = 2*(center_frequency-low_freq)
-    #print('bw', bw)
-    #plt.plot(f, m)
+    # print('bw', bw)
+    # plt.plot(f, m)
     # plt.show()
     w.close()
     return bw
