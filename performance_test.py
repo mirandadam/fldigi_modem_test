@@ -5,53 +5,19 @@ import mylib as t
 import Levenshtein  # from python-levenshtein, for edit distance
 import json
 
-
-local_folder = os.path.abspath(__file__)
-if os.path.isfile(local_folder):
-    local_folder = os.path.dirname(local_folder)+os.sep
-
-# input and output paths, configuration files.
-fn_test_message = local_folder+'t0_joao_3_16.txt'
-fn_test_message_alternate = local_folder+'t0_joao_3_16_alternate.txt'
-fn_fldigi_configuration_folder = local_folder+'fldigi_conf'+os.sep
-fn_macro_file = fn_fldigi_configuration_folder+'macros'+os.sep+'macros.mdf'
-fn_fldigi_home_folder = local_folder+'fldigi_home'+os.sep
-fn_output_folder = local_folder+'audio_temp'+os.sep
-fn_simulation_file = fn_output_folder+'simulation.csv'
-fn_audio = fn_output_folder+'audio.wav'
-fn_message = fn_output_folder+'message.txt'
-fn_modes_to_test = local_folder+'modes_to_test.csv'
+from myconf import *
 
 assert os.path.exists(fn_test_message)
-if not os.path.exists(fn_output_folder):
-    os.makedirs(fn_output_folder)
+if not os.path.exists(dn_output_folder):
+    os.makedirs(dn_output_folder)
 
 modes_to_test = t.get_test_modes(fn_modes_to_test)
 
-if not os.path.exists(fn_macro_file):
-    print("Opening FLDIGI to populate custom configuration.")
-    print("***Please skip all configuration and CLOSE FLDIGI.***")
-    fldigi_process = t.open_fldigi(fn_fldigi_configuration_folder,
-                                   fn_fldigi_home_folder)
-    fldigi_process.wait()
-    del fldigi_process
-    assert os.path.exists(fn_macro_file)
-    print("Launching fldigi again with updated macro file.")
-
-f = open(fn_macro_file, 'w')
-f.write(t.macro_file_template.format(fn_audio, fn_message))
-f.close()
-
-try:
-    fldigi = t.connect()  # returns a xmlrpc connection
-    t.initial_setup(fldigi)
-    fldigi_process = None
-except ConnectionRefusedError:
-    fldigi_process = t.open_fldigi(fn_fldigi_configuration_folder,
-                                   fn_fldigi_home_folder)
-    t.wait(3)
-    fldigi = t.connect()  # returns a xmlrpc connection
-    t.initial_setup(fldigi)
+fldigi = t.start_fldigi(dn_fldigi_configuration_folder,
+                        dn_fldigi_home_folder,
+                        fn_macro_file,
+                        fn_audio,
+                        fn_message)
 
 # testing if all the intended modes are recognized by fldigi:
 commands = fldigi.fldigi.list()
@@ -64,20 +30,6 @@ t.initial_setup(fldigi)
 
 # load test message
 test_message = open(fn_test_message, 'r').read()
-
-
-def wav_decode(fn_wavfile, fn_audio, wait=0):
-    fldigi.text.clear_rx()
-    if fn_wavfile != fn_audio:
-        shutil.copy(fn_wavfile, fn_audio)
-    t.run_macro(fldigi, 'playback')
-    t.run_macro(fldigi, 'highspeed_on')
-    rx_data = t.get_rx(fldigi)
-    rx_data += t.get_rx_until_file_closed(fldigi, fn_audio)
-    t.wait(wait)
-    t.run_macro(fldigi, 'stop_playback')
-    rx_data += t.get_rx(fldigi)
-    return rx_data
 
 
 # thor 100 decoded text shows ok on fldigi screen, but does not read out on get_rx
@@ -100,24 +52,24 @@ for m in modes_to_test:
         fldigi.modem.set_by_name(m)
         t.run_macro(fldigi, 'generate')
         t.wait()
-        if m[:4] == 'THOR' and 'Micro' not in m:
-            # use alternate test message with extra padding
-            os.rename(fn_test_message, fn_test_message+'_backup')
-            os.rename(fn_test_message_alternate, fn_test_message)
+        shutil.copy(fn_test_message, fn_message)
+        if m in ['THOR100','THOR16','THOR50x1']:
+            # Add extra padding
+            f = open(fn_message, 'w')
+            f.write('='*50)
+            f.write(test_message.rstrip('\r\n\t '))
+            f.write('+'*50)
+            f.close()
         t.run_macro(fldigi, 'cps_test')
         t.wait_RX(fldigi)
         t.run_macro(fldigi, 'stop_generate')
         t.wait_closed(fn_audio)
-        if m[:4] == 'THOR' and 'Micro' not in m:
-            # replace the original file
-            os.rename(fn_test_message, fn_test_message_alternate)
-            shutil.copy(fn_test_message+'_backup', fn_test_message)
         print('Checking...')
         # decode the file, wait more every failed attempt
         # The wait at the end is necessary for some slower modes
         # that close the file before finishing transmitting.
         # documented examples are Olivia and MT63
-        rx_data = wav_decode(fn_audio, fn_audio, (count-1)*2)
+        rx_data = t.wav_decode(fldigi, fn_audio, fn_audio, (count-1)*2)
         trimmed_rx = t.trim(rx_data)
         # print(trimmed_rx)
         if trimmed_rx == trimmed_test:
@@ -126,41 +78,45 @@ for m in modes_to_test:
             count = count+1
             t.initial_setup(fldigi)
             t.wait(2)
-    fn_reference_audio = fn_output_folder+m+'.wav'
+    fn_reference_audio = dn_output_folder+m+'.wav'
     os.rename(fn_audio, fn_reference_audio)
 
     print("Testing white noise...")
-    datapoints = [[i,  # id
-                   'AWGN_SN{0}{1:04.1f}'.format('p' if i >= 0 else 'n', abs(i)),  # prefix
-                   None, len(trimmed_rx)]  # measurement result
-                  for i in range(-20, 16, 1)]
+    datapoints = [{'mode': m,
+                   'awgn s/n': i,
+                   'suffix': 'AWGN_SN{0}{1:04.1f}'.format('p' if i >= 0 else 'n', abs(i)),
+                   'message length': len(trimmed_rx),
+                   'simulation string': None,
+                   'error rate': None} for i in range(-30, 16, 5)]
     f = open(fn_simulation_file, 'w')
     f.write(t.simulation_file_header+os.linesep)
     for d in datapoints:
-        if d[2] is not None:
+        if d['error rate'] is not None:
             continue
-        f.write('"{1}",1,{0},0,0,0,0,0,0,0,0,0,0,0,0'.format(d[0], d[1]) + os.linesep)
+        d['simulation string'] = '"{0}",1,{1},0,0,0,0,0,0,0,0,0,0,0,0'.format(d['suffix'], d['awgn s/n'])
+        f.write(d['simulation string']+os.linesep)
+
     f.close()
-    t.run_linsim(fn_reference_audio, fn_output_folder, fn_simulation_file)
+    t.run_linsim(fn_reference_audio, dn_output_folder, fn_simulation_file)
     for d in datapoints:
-        if d[2] is not None:
+        if d['error rate'] is not None:
             continue
-        fn_current_test = fn_reference_audio[:-4]+'.'+d[1]+'.wav'
+        fn_current_test = fn_reference_audio[:-4]+'.'+d['suffix']+'.wav'
         assert os.path.exists(fn_current_test)
-        rx_data = wav_decode(fn_current_test, fn_audio, 0)
+        rx_data = t.wav_decode(fldigi, fn_current_test, fn_audio, 0)
         trimmed_rx = t.trim(rx_data)
         distance = Levenshtein.distance(trimmed_test, trimmed_rx)/len(trimmed_test)
-        d[2] = distance
-        print(m, d[0], distance)
+        d['error rate'] = distance
+        print(m, d['awgn s/n'], distance)
         os.unlink(fn_current_test)  # deleting wav file, or we will need a lot of space.
     f = open(fn_reference_audio[:-4]+'.json', 'w')
-    f.write(json.dumps(datapoints))
+    f.write(json.dumps(datapoints, sort_keys=True))
     f.close()
-    all_datapoints.append([m, datapoints])
-f = open(fn_output_folder+'all.json', 'w')
-f.write(json.dumps(all_datapoints))
+    all_datapoints.append(datapoints)
+f = open(fn_datapoints, 'w')
+f.write(json.dumps(all_datapoints, sort_keys=True))
 f.close()
 
-# fldigi_process.terminate()
-# fldigi_process.wait()
-# t.wait(10)
+fldigi.fldigi.terminate(0)
+print('Terminating running fldigi session found on local port 7362.')
+t.wait(1)

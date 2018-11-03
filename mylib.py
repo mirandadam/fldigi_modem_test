@@ -7,6 +7,7 @@ import re
 import subprocess
 import wave
 import numpy as np
+import shutil
 #import matplotlib.pyplot as plt
 
 simulation_file_header = "TITLE,AWGN,S/N,P1,SPREAD_1,OFFSET_1,P2,DELAY_2,SPREAD_2,OFFSET_2,P3,DELAY_3,SPREAD_3,OFFSET_3"
@@ -129,9 +130,9 @@ def run_macro(client, macroname):
     client.main.run_macro(macros[macroname])
 
 
+'''
 def connect():
     return xmlrpc.client.ServerProxy("http://127.0.0.1:7362/")
-
 
 def open_fldigi(configuration_folder, home_folder):
     if not os.path.exists(configuration_folder):
@@ -145,6 +146,70 @@ def open_fldigi(configuration_folder, home_folder):
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE)
     return p
+'''
+
+
+def start_fldigi(configuration_folder, home_folder,
+                 macro_file, audio_file, message_file):
+    '''
+    This function does what is necessary to return a working
+    xmlrpc connection to an instance of fldigi configured
+    with the required macros.
+    '''
+    initial_conf = False
+    if not os.path.exists(configuration_folder):
+        os.makedirs(configuration_folder)
+        initial_conf = True
+    if not os.path.exists(home_folder):
+        os.makedirs(home_folder)
+        initial_conf = True
+    if not os.path.exists(os.path.dirname(macro_file)):
+        os.makedirs(os.path.dirname(macro_file))
+        initial_conf = True
+    if not os.path.exists(os.path.dirname(audio_file)):
+        os.makedirs(os.path.dirname(audio_file))
+        initial_conf = True
+    if not os.path.exists(os.path.dirname(message_file)):
+        os.makedirs(os.path.dirname(message_file))
+        initial_conf = True
+
+    try:
+        # if whe can connect to a running fldigi, ask the user to close it.
+        fldigi = xmlrpc.client.ServerProxy("http://127.0.0.1:7362/")  # returns a xmlrpc connection
+        if fldigi.modem.get_names():
+            print('***Running fldigi found. Please terminate FLDIGI before running this script.***')
+            return None
+    except ConnectionRefusedError:
+        print('No running fldigi session found on local port 7362. Opening a new one.')
+
+    f = open(macro_file, 'w')
+    f.write(macro_file_template.format(audio_file, message_file))
+    f.close()
+    p = subprocess.Popen(
+        ['fldigi',
+         '--config-dir', configuration_folder,
+         '--home-dir', home_folder],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE)
+    wait(3)
+
+    if initial_conf:
+        print("Skip all fldigi configuration and ***CLOSE FLDIGI***.")
+        p.wait()
+        f = open(macro_file, 'w')
+        f.write(macro_file_template.format(audio_file, message_file))
+        f.close()
+        p = subprocess.Popen(
+            ['fldigi',
+             '--config-dir', configuration_folder,
+             '--home-dir', home_folder],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE)
+        wait(3)
+
+    fldigi = xmlrpc.client.ServerProxy("http://127.0.0.1:7362/")  # returns a xmlrpc connection
+    initial_setup(fldigi)
+    return fldigi
 
 
 def run_linsim(input_file, output_folder, simulation_file):
@@ -204,3 +269,17 @@ def get_wav_bandwidth(fn_wavefile, center_frequency):
     # plt.show()
     w.close()
     return bw
+
+
+def wav_decode(client, fn_wavfile, fn_audio, wait_s=0):
+    client.text.clear_rx()
+    if fn_wavfile != fn_audio:
+        shutil.copy(fn_wavfile, fn_audio)
+    run_macro(client, 'playback')
+    run_macro(client, 'highspeed_on')
+    rx_data = get_rx(client)
+    rx_data += get_rx_until_file_closed(client, fn_audio)
+    wait(wait_s)
+    run_macro(client, 'stop_playback')
+    rx_data += get_rx(client)
+    return rx_data
