@@ -4,6 +4,7 @@ import shutil
 import mylib as t
 import Levenshtein  # from python-levenshtein, for edit distance
 import json
+import sys
 
 from myconf import *
 
@@ -20,7 +21,10 @@ fldigi = t.start_fldigi(dn_fldigi_configuration_folder,
                         fn_message)
 
 # testing if all the intended modes are recognized by fldigi:
-commands = fldigi.fldigi.list()
+try:
+    commands = fldigi.fldigi.list()
+except AttributeError:
+    sys.exit(1)
 accepted_modems = set(fldigi.modem.get_names())
 intended_modems = set(modes_to_test)
 assert accepted_modems.issuperset(intended_modems)
@@ -53,7 +57,7 @@ for m in modes_to_test:
         t.run_macro(fldigi, 'generate')
         t.wait()
         shutil.copy(fn_test_message, fn_message)
-        if m in ['THOR100','THOR16','THOR50x1']:
+        if m in ['THOR100', 'THOR16', 'THOR50x1', 'THOR50x2']:
             # Add extra padding
             f = open(fn_message, 'w')
             f.write('='*50)
@@ -112,7 +116,7 @@ for m in modes_to_test:
     f = open(fn_reference_audio[:-4]+'.json', 'w')
     f.write(json.dumps(datapoints, sort_keys=True))
     f.close()
-    all_datapoints.append(datapoints)
+    all_datapoints.extend(datapoints)
 f = open(fn_datapoints, 'w')
 f.write(json.dumps(all_datapoints, sort_keys=True))
 f.close()
