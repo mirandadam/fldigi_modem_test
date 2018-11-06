@@ -8,6 +8,8 @@ import subprocess
 import wave
 import numpy as np
 import shutil
+import json
+import Levenshtein  # from python-levenshtein, for edit distance
 # import matplotlib.pyplot as plt
 
 simulation_file_header = "TITLE,AWGN,S/N,P1,SPREAD_1,OFFSET_1,P2,DELAY_2,SPREAD_2,OFFSET_2,P3,DELAY_3,SPREAD_3,OFFSET_3"
@@ -219,12 +221,8 @@ def run_linsim(input_file, output_folder, simulation_file):
                         '--run_batch=' + simulation_file])
 
 
-def evaluate_datapoint(client,
-                       test_data_file,
-                       simulation_file,
-                       message_file,
-                       audio_file,
-                       datapoint):
+def evaluate_datapoint(client, test_data_file, simulation_file,
+                       message_file, audio_file, datapoint):
     '''
     Evaluate the error rate using the conditions in a datapoint.
     audio_file and message_file have to be the same as fn_audio and fn_message;
@@ -239,7 +237,6 @@ def evaluate_datapoint(client,
         "error rate": None
     }
     '''
-
     assert len(set(datapoint.keys()).symmetric_difference({
         'mode',
         'awgn s/n',
@@ -250,29 +247,61 @@ def evaluate_datapoint(client,
     })) == 0
     assert datapoint['mode'] in client.modem.get_names()
     simulation_parameters = datapoint['simulation string'].split(',')
-    assert len(simulation_parameters) == 15
-    for p, i in enumerate(simulation_parameters):
-        if p == '':
-            simulation_parameters[i] = '0.0'
-        elif i > 0:
-            simulation_parameters[i] = str(float(simulation_parameters[i]))
+    assert len(simulation_parameters) >= 14
     # copy datapoint to output
     output = json.loads(json.dumps(datapoint))
-    output['simulation string'] = ','.join(simulation_parameters)
+    output['simulation string'] = unparse_simulation_parameters(
+        parse_simulation_parameters(
+            datapoint['simulation string']
+        )
+    )
 
-    test_data = open(test_data_file, 'r').read()
+    test_data = open(test_data_file, 'rb').read()
     f = open(simulation_file, 'w')
     f.write(simulation_file_header+os.linesep)
     f.write(output['simulation string'])
     f.close()
     client.modem.set_by_name(output['mode'])
     generate_wav(client, test_data_file, audio_file, message_file, audio_file)
-    decoded_data = wav_decode(client, audio_file, audio_file)
+    run_linsim(audio_file,
+               os.path.dirname(audio_file)+os.sep,
+               simulation_file)
+    os.unlink(audio_file)
+    simulated_file = audio_file[:-4]+'.'+datapoint['suffix']+'.wav'
+    assert os.path.exists(simulated_file)
+    decoded_data = wav_decode(client, simulated_file, audio_file)
     ml = len(trim(test_data))
     ed = Levenshtein.distance(trim(test_data), trim(decoded_data))
     output['message length'] = ml
     output['error rate'] = ed/ml
     return output
+
+
+def parse_simulation_parameters(raw_line):
+    parameters = raw_line.strip('\r\n\t ').split(',')[:14]
+    for i, p in enumerate(parameters):
+        if p == '':
+            parameters[i] = 0.
+        elif i > 0:
+            parameters[i] = float(parameters[i])
+    parsed = {}
+    parsed['title'] = parameters[0].strip('"')
+    parsed['awgn enable'] = bool(parameters[1])
+    parsed['awgn s/n'] = parameters[2]
+    parsed['profile'] = tuple(parameters[3:14])
+    return parsed
+
+
+def unparse_simulation_parameters(parsed_parameters):
+    a = parsed_parameters
+    p = parsed_parameters['profile']
+    s = '"{}",{:g},{:g},{:g},{:g},{:g},{:g},{:g},{:g},{:g},{:g},{:g},{:g},{:g},'
+    return s.format(a['title'],
+                    int(a['awgn enable']), a['awgn s/n'],
+                    int(p[0]), p[1], p[2],
+                    int(p[3]), p[4], p[5],
+                    int(p[6]), p[7], p[8],
+                    p[9], p[10])
 
 
 def generate_wav(client, input_file, output_audio, fn_message, fn_audio):
@@ -342,3 +371,31 @@ def wav_decode(client, fn_wavfile, fn_audio, wait_s=0):
     run_macro(client, 'stop_playback')
     rx_data += get_rx(client)
     return rx_data
+
+
+def suggest_samples(snr_list, error_rate_list, threshold_to_refine, db_interval):
+    assert len(snr_list) == len(error_rate_list)
+    assert db_interval > 0
+    assert threshold_to_refine > 0
+    aux = np.argsort(snr_list)
+    snr = np.array(snr_list)[aux]
+    error = np.array(error_rate_list)[aux]
+    if len(snr_list) == 0:
+        # if the list is empty, suggest to try with -16 and 16dB
+        return [-16., 16.]
+    new_snrs = []
+    for i in range(len(error)-1):
+        a = error[i]
+        b = error[i+1]
+        if max(a, b) > threshold_to_refine and min(a, b) < threshold_to_refine:
+            # if we found a crossing point
+            if abs(snr[i]-snr[i+1]) > db_interval:
+                # if the interval is large enough, insert another sample
+                new_snrs.append((snr[i]+snr[i+1])/2)
+    if error[-1] > threshold_to_refine:
+        # if even the best snr is too bad, try with a better one.
+        new_snrs.append(snr[-1]+5)
+    if error[0] < threshold_to_refine:
+        # if even the worst snr is still too good, try with a worse one.
+        new_snrs.append(snr[0]-5)
+    return new_snrs

@@ -17,4 +17,5 @@ fn_message = dn_output_folder+'message.txt'
 fn_modes_to_test = dn_local_folder+'modes_to_test.csv'
 fn_datapoints = dn_output_folder+'datapoints.json'
 fn_mode_info = dn_output_folder+'mode_info.json'
-
+dn_results_folder = dn_local_folder+'results'+os.sep
+fn_simulation_templates = dn_local_folder+'simulation_templates.csv'
