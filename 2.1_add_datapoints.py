@@ -82,4 +82,4 @@ for p in simulation_profiles:
         new_datapoints.append(dp2)
 
 new_datapoints.extend(datapoints)
-open(fn_datapoints+'_new', 'w').write(json.dumps(new_datapoints, indent=' '))
+open(fn_datapoints+'_new', 'w').write(json.dumps(new_datapoints, indent=1))

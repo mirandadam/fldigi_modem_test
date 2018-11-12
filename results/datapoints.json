@@ -1,5 +1,941 @@
 [
  {
+  "awgn s/n": 9.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "BPSK63F",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp09.0\",1,9,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp09.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.008426966292134831,
+  "message length": 712,
+  "mode": "BPSK63",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp09.0\",1,9,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp09.0"
+ },
+ {
+  "awgn s/n": 15.0,
+  "error rate": 0.009831460674157303,
+  "message length": 712,
+  "mode": "DOMX11",
+  "simulation string": "\"Mid_Latitude_Disturbed_SNp15.0\",1,15,1,1,0,1,2,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_SNp15.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.011235955056179775,
+  "message length": 712,
+  "mode": "DOMX88",
+  "simulation string": "\"CCIR_520_2_Doppler_Fading_SNp09.0\",1,9,1,0.2,10,1,0.5,0.2,5,0,0,0,0,",
+  "suffix": "CCIR_520_2_Doppler_Fading_SNp09.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.009831460674157303,
+  "message length": 712,
+  "mode": "PSK125RC5",
+  "simulation string": "\"CCIR_520_2_Doppler_Fading_SNp09.0\",1,9,1,0.2,10,1,0.5,0.2,5,0,0,0,0,",
+  "suffix": "CCIR_520_2_Doppler_Fading_SNp09.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "PSK500R",
+  "simulation string": "\"CCIR_520_2_Doppler_Fading_SNp09.0\",1,9,1,0.2,10,1,0.5,0.2,5,0,0,0,0,",
+  "suffix": "CCIR_520_2_Doppler_Fading_SNp09.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.007022471910112359,
+  "message length": 712,
+  "mode": "PSK500RC2",
+  "simulation string": "\"CCIR_520_2_Doppler_Fading_SNp09.0\",1,9,1,0.2,10,1,0.5,0.2,5,0,0,0,0,",
+  "suffix": "CCIR_520_2_Doppler_Fading_SNp09.0"
+ },
+ {
+  "awgn s/n": 13.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "PSK63RC32",
+  "simulation string": "\"CCIR_520_2_Doppler_Fading_SNp13.0\",1,13,1,0.2,10,1,0.5,0.2,5,0,0,0,0,",
+  "suffix": "CCIR_520_2_Doppler_Fading_SNp13.0"
+ },
+ {
+  "awgn s/n": 13.0,
+  "error rate": 0.007022471910112359,
+  "message length": 712,
+  "mode": "PSK800RC2",
+  "simulation string": "\"CCIR_520_2_Doppler_Fading_SNp13.0\",1,13,1,0.2,10,1,0.5,0.2,5,0,0,0,0,",
+  "suffix": "CCIR_520_2_Doppler_Fading_SNp13.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.02247191011235955,
+  "message length": 712,
+  "mode": "PSK125RC16",
+  "simulation string": "\"CCIR_520_2_Flutter_Fading_SNp09.0\",1,9,1,10,0,1,0.5,10,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Flutter_Fading_SNp09.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.011235955056179775,
+  "message length": 712,
+  "mode": "PSK500RC4",
+  "simulation string": "\"CCIR_520_2_Flutter_Fading_SNp09.0\",1,9,1,10,0,1,0.5,10,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Flutter_Fading_SNp09.0"
+ },
+ {
+  "awgn s/n": 13.0,
+  "error rate": 0.014044943820224719,
+  "message length": 712,
+  "mode": "PSK63RC20",
+  "simulation string": "\"CCIR_520_2_Flutter_Fading_SNp13.0\",1,13,1,10,0,1,0.5,10,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Flutter_Fading_SNp13.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.014044943820224719,
+  "message length": 712,
+  "mode": "PSK63RC5",
+  "simulation string": "\"CCIR_520_2_Flutter_Fading_SNp09.0\",1,9,1,10,0,1,0.5,10,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Flutter_Fading_SNp09.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.004213483146067416,
+  "message length": 712,
+  "mode": "8PSK125",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp09.0\",1,9,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp09.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.007022471910112359,
+  "message length": 712,
+  "mode": "BPSK31",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp03.0\",1,3,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp03.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.009831460674157303,
+  "message length": 712,
+  "mode": "BPSK63",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp01.0\",1,1,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp01.0"
+ },
+ {
+  "awgn s/n": 10.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "BPSK63F",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp10.0\",1,10,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp10.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.008426966292134831,
+  "message length": 712,
+  "mode": "DOMEX Micro",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp01.0\",1,1,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp01.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.011235955056179775,
+  "message length": 712,
+  "mode": "DOMEX4",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp01.0\",1,1,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp01.0"
+ },
+ {
+  "awgn s/n": 5.0,
+  "error rate": 0.0056179775280898875,
+  "message length": 712,
+  "mode": "DOMEX8",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp05.0\",1,5,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp05.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.012640449438202247,
+  "message length": 712,
+  "mode": "DOMX16",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp03.0\",1,3,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp03.0"
+ },
+ {
+  "awgn s/n": 13.0,
+  "error rate": 0.007022471910112359,
+  "message length": 712,
+  "mode": "DOMX44",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp13.0\",1,13,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp13.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.0056179775280898875,
+  "message length": 712,
+  "mode": "DOMX88",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp09.0\",1,9,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp09.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.007022471910112359,
+  "message length": 712,
+  "mode": "MFSK64",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp01.0\",1,1,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp01.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.007022471910112359,
+  "message length": 712,
+  "mode": "PSK250RC2",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp09.0\",1,9,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp09.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.007022471910112359,
+  "message length": 712,
+  "mode": "PSK250RC3",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp01.0\",1,1,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp01.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.8946629213483146,
+  "message length": 712,
+  "mode": "PSK500C2",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp03.0\",1,3,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp03.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.0056179775280898875,
+  "message length": 712,
+  "mode": "PSK500C4",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp09.0\",1,9,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp09.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.0028089887640449437,
+  "message length": 712,
+  "mode": "PSK63RC4",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp03.0\",1,3,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp03.0"
+ },
+ {
+  "awgn s/n": 11.0,
+  "error rate": 0.0028089887640449437,
+  "message length": 712,
+  "mode": "PSK800C2",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp11.0\",1,11,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp11.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.009831460674157303,
+  "message length": 712,
+  "mode": "QPSK125",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp09.0\",1,9,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp09.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.012640449438202247,
+  "message length": 712,
+  "mode": "QPSK31",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp03.0\",1,3,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp03.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.01544943820224719,
+  "message length": 712,
+  "mode": "QPSK63",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp01.0\",1,1,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp01.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.025280898876404494,
+  "message length": 712,
+  "mode": "THOR16",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp01.0\",1,1,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp01.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "THOR22",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp03.0\",1,3,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp03.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "THOR50x1",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp01.0\",1,1,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp01.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.0056179775280898875,
+  "message length": 712,
+  "mode": "8PSK125",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp09.0\",1,9,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp09.0"
+ },
+ {
+  "awgn s/n": 7.0,
+  "error rate": 0.01544943820224719,
+  "message length": 712,
+  "mode": "BPSK125",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp07.0\",1,7,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp07.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.011235955056179775,
+  "message length": 712,
+  "mode": "BPSK250",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp09.0\",1,9,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp09.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.007022471910112359,
+  "message length": 712,
+  "mode": "BPSK31",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp01.0\",1,1,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp01.0"
+ },
+ {
+  "awgn s/n": 7.0,
+  "error rate": 0.012640449438202247,
+  "message length": 712,
+  "mode": "BPSK63",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp07.0\",1,7,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp07.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.009831460674157303,
+  "message length": 712,
+  "mode": "DOMEX8",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp01.0\",1,1,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp01.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.01544943820224719,
+  "message length": 712,
+  "mode": "DOMX11",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp01.0\",1,1,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp01.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.011235955056179775,
+  "message length": 712,
+  "mode": "DOMX16",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp03.0\",1,3,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp03.0"
+ },
+ {
+  "awgn s/n": 13.0,
+  "error rate": 0.016853932584269662,
+  "message length": 712,
+  "mode": "DOMX22",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp13.0\",1,13,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp13.0"
+ },
+ {
+  "awgn s/n": 11.0,
+  "error rate": 0.014044943820224719,
+  "message length": 712,
+  "mode": "DOMX88",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp11.0\",1,11,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp11.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.009831460674157303,
+  "message length": 712,
+  "mode": "MFSK128",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp01.0\",1,1,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp01.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.0028089887640449437,
+  "message length": 712,
+  "mode": "MFSK128L",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp01.0\",1,1,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp01.0"
+ },
+ {
+  "awgn s/n": 5.0,
+  "error rate": 0.008426966292134831,
+  "message length": 712,
+  "mode": "PSK125RC4",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp05.0\",1,5,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp05.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.0056179775280898875,
+  "message length": 712,
+  "mode": "PSK250RC2",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp09.0\",1,9,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp09.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.008426966292134831,
+  "message length": 712,
+  "mode": "PSK250RC3",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp01.0\",1,1,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp01.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.018258426966292134,
+  "message length": 712,
+  "mode": "QPSK31",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp01.0\",1,1,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp01.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "THOR22",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp01.0\",1,1,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp01.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.008426966292134831,
+  "message length": 712,
+  "mode": "BPSK31",
+  "simulation string": "\"CCIR_520_2_Poor_Conditions_SNp03.0\",1,3,1,0.5,0,1,2,0.5,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Poor_Conditions_SNp03.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.014044943820224719,
+  "message length": 712,
+  "mode": "DOMEX5",
+  "simulation string": "\"CCIR_520_2_Poor_Conditions_SNp01.0\",1,1,1,0.5,0,1,2,0.5,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Poor_Conditions_SNp01.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.014044943820224719,
+  "message length": 712,
+  "mode": "DOMEX8",
+  "simulation string": "\"CCIR_520_2_Poor_Conditions_SNp03.0\",1,3,1,0.5,0,1,2,0.5,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Poor_Conditions_SNp03.0"
+ },
+ {
+  "awgn s/n": 5.0,
+  "error rate": 0.008426966292134831,
+  "message length": 712,
+  "mode": "DOMX11",
+  "simulation string": "\"CCIR_520_2_Poor_Conditions_SNp05.0\",1,5,1,0.5,0,1,2,0.5,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Poor_Conditions_SNp05.0"
+ },
+ {
+  "awgn s/n": 5.0,
+  "error rate": 0.018258426966292134,
+  "message length": 712,
+  "mode": "DOMX16",
+  "simulation string": "\"CCIR_520_2_Poor_Conditions_SNp05.0\",1,5,1,0.5,0,1,2,0.5,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Poor_Conditions_SNp05.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.01544943820224719,
+  "message length": 712,
+  "mode": "DOMX22",
+  "simulation string": "\"CCIR_520_2_Poor_Conditions_SNp03.0\",1,3,1,0.5,0,1,2,0.5,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Poor_Conditions_SNp03.0"
+ },
+ {
+  "awgn s/n": 13.0,
+  "error rate": 0.009831460674157303,
+  "message length": 712,
+  "mode": "DOMX44",
+  "simulation string": "\"CCIR_520_2_Poor_Conditions_SNp13.0\",1,13,1,0.5,0,1,2,0.5,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Poor_Conditions_SNp13.0"
+ },
+ {
+  "awgn s/n": 11.0,
+  "error rate": 0.012640449438202247,
+  "message length": 712,
+  "mode": "DOMX88",
+  "simulation string": "\"CCIR_520_2_Poor_Conditions_SNp11.0\",1,11,1,0.5,0,1,2,0.5,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Poor_Conditions_SNp11.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.012640449438202247,
+  "message length": 712,
+  "mode": "MFSK128",
+  "simulation string": "\"CCIR_520_2_Poor_Conditions_SNp03.0\",1,3,1,0.5,0,1,2,0.5,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Poor_Conditions_SNp03.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "PSK63RC4",
+  "simulation string": "\"CCIR_520_2_Poor_Conditions_SNp03.0\",1,3,1,0.5,0,1,2,0.5,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Poor_Conditions_SNp03.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.009831460674157303,
+  "message length": 712,
+  "mode": "QPSK31",
+  "simulation string": "\"CCIR_520_2_Poor_Conditions_SNp03.0\",1,3,1,0.5,0,1,2,0.5,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Poor_Conditions_SNp03.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.0056179775280898875,
+  "message length": 712,
+  "mode": "8PSK500",
+  "simulation string": "\"Direct_Path_SNp09.0\",1,9,0,0,0,0,0,0,0,0,0,0,0,",
+  "suffix": "Direct_Path_SNp09.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "PSK1000RC2",
+  "simulation string": "\"Direct_Path_SNp01.0\",1,1,0,0,0,0,0,0,0,0,0,0,0,",
+  "suffix": "Direct_Path_SNp01.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.021067415730337078,
+  "message length": 712,
+  "mode": "PSK500C2",
+  "simulation string": "\"Direct_Path_SNp01.0\",1,1,0,0,0,0,0,0,0,0,0,0,0,",
+  "suffix": "Direct_Path_SNp01.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "PSK63RC32",
+  "simulation string": "\"Direct_Path_SNp01.0\",1,1,0,0,0,0,0,0,0,0,0,0,0,",
+  "suffix": "Direct_Path_SNp01.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "QPSK500",
+  "simulation string": "\"Direct_Path_SNp01.0\",1,1,0,0,0,0,0,0,0,0,0,0,0,",
+  "suffix": "Direct_Path_SNp01.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.04073033707865169,
+  "message length": 712,
+  "mode": "DOMX88",
+  "simulation string": "\"Frequency_Shifter_SNp09.0\",1,9,1,0,500,0,0,0,0,0,0,0,0,",
+  "suffix": "Frequency_Shifter_SNp09.0"
+ },
+ {
+  "awgn s/n": 15.0,
+  "error rate": 0.028089887640449437,
+  "message length": 712,
+  "mode": "PSK63RC20",
+  "simulation string": "\"High_Latitude_Moderate_SNp15.0\",1,15,1,10,0,1,3,10,0,0,0,0,0,",
+  "suffix": "High_Latitude_Moderate_SNp15.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "PSK63RC4",
+  "simulation string": "\"High_Latitude_Moderate_SNp03.0\",1,3,1,10,0,1,3,10,0,0,0,0,0,",
+  "suffix": "High_Latitude_Moderate_SNp03.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.019662921348314606,
+  "message length": 712,
+  "mode": "PSK63RC5",
+  "simulation string": "\"High_Latitude_Moderate_SNp03.0\",1,3,1,10,0,1,3,10,0,0,0,0,0,",
+  "suffix": "High_Latitude_Moderate_SNp03.0"
+ },
+ {
+  "awgn s/n": 5.0,
+  "error rate": 0.01544943820224719,
+  "message length": 712,
+  "mode": "DOMX16",
+  "simulation string": "\"Low_Latitude_Moderate_SNp05.0\",1,5,1,1.5,0,1,2,1.5,0,0,0,0,0,",
+  "suffix": "Low_Latitude_Moderate_SNp05.0"
+ },
+ {
+  "awgn s/n": 5.0,
+  "error rate": 0.014044943820224719,
+  "message length": 712,
+  "mode": "DOMX22",
+  "simulation string": "\"Low_Latitude_Moderate_SNp05.0\",1,5,1,1.5,0,1,2,1.5,0,0,0,0,0,",
+  "suffix": "Low_Latitude_Moderate_SNp05.0"
+ },
+ {
+  "awgn s/n": 11.0,
+  "error rate": 0.012640449438202247,
+  "message length": 712,
+  "mode": "DOMX44",
+  "simulation string": "\"Low_Latitude_Moderate_SNp11.0\",1,11,1,1.5,0,1,2,1.5,0,0,0,0,0,",
+  "suffix": "Low_Latitude_Moderate_SNp11.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.009831460674157303,
+  "message length": 712,
+  "mode": "PSK125RC16",
+  "simulation string": "\"Low_Latitude_Moderate_SNp09.0\",1,9,1,1.5,0,1,2,1.5,0,0,0,0,0,",
+  "suffix": "Low_Latitude_Moderate_SNp09.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.007022471910112359,
+  "message length": 712,
+  "mode": "PSK125RC4",
+  "simulation string": "\"Low_Latitude_Moderate_SNp01.0\",1,1,1,1.5,0,1,2,1.5,0,0,0,0,0,",
+  "suffix": "Low_Latitude_Moderate_SNp01.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.007022471910112359,
+  "message length": 712,
+  "mode": "PSK125RC5",
+  "simulation string": "\"Low_Latitude_Moderate_SNp01.0\",1,1,1,1.5,0,1,2,1.5,0,0,0,0,0,",
+  "suffix": "Low_Latitude_Moderate_SNp01.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.004213483146067416,
+  "message length": 712,
+  "mode": "PSK63RC10",
+  "simulation string": "\"Low_Latitude_Moderate_SNp03.0\",1,3,1,1.5,0,1,2,1.5,0,0,0,0,0,",
+  "suffix": "Low_Latitude_Moderate_SNp03.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.009831460674157303,
+  "message length": 712,
+  "mode": "PSK63RC32",
+  "simulation string": "\"Low_Latitude_Moderate_SNp09.0\",1,9,1,1.5,0,1,2,1.5,0,0,0,0,0,",
+  "suffix": "Low_Latitude_Moderate_SNp09.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.012640449438202247,
+  "message length": 712,
+  "mode": "QPSK31",
+  "simulation string": "\"Low_Latitude_Moderate_SNp03.0\",1,3,1,1.5,0,1,2,1.5,0,0,0,0,0,",
+  "suffix": "Low_Latitude_Moderate_SNp03.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.009831460674157303,
+  "message length": 712,
+  "mode": "8PSK125",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp09.0\",1,9,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp09.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.0056179775280898875,
+  "message length": 712,
+  "mode": "BPSK125",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp01.0\",1,1,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp01.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.0056179775280898875,
+  "message length": 712,
+  "mode": "BPSK250",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp09.0\",1,9,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp09.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.012640449438202247,
+  "message length": 712,
+  "mode": "BPSK31",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp03.0\",1,3,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp03.0"
+ },
+ {
+  "awgn s/n": 10.0,
+  "error rate": 0.009831460674157303,
+  "message length": 712,
+  "mode": "BPSK63",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp10.0\",1,10,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp10.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.014044943820224719,
+  "message length": 712,
+  "mode": "DOMEX8",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp01.0\",1,1,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp01.0"
+ },
+ {
+  "awgn s/n": 7.0,
+  "error rate": 0.009831460674157303,
+  "message length": 712,
+  "mode": "DOMX11",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp07.0\",1,7,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp07.0"
+ },
+ {
+  "awgn s/n": 7.0,
+  "error rate": 0.009831460674157303,
+  "message length": 712,
+  "mode": "DOMX16",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp07.0\",1,7,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp07.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.016853932584269662,
+  "message length": 712,
+  "mode": "DOMX22",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp03.0\",1,3,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp03.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.0056179775280898875,
+  "message length": 712,
+  "mode": "DOMX44",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp09.0\",1,9,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp09.0"
+ },
+ {
+  "awgn s/n": 11.0,
+  "error rate": 0.012640449438202247,
+  "message length": 712,
+  "mode": "DOMX88",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp11.0\",1,11,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp11.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.004213483146067416,
+  "message length": 712,
+  "mode": "MFSK128",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp03.0\",1,3,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp03.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "PSK125R",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp03.0\",1,3,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp03.0"
+ },
+ {
+  "awgn s/n": 5.0,
+  "error rate": 0.011235955056179775,
+  "message length": 712,
+  "mode": "PSK125RC4",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp05.0\",1,5,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp05.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.004213483146067416,
+  "message length": 712,
+  "mode": "PSK125RC5",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp03.0\",1,3,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp03.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.016853932584269662,
+  "message length": 712,
+  "mode": "PSK250RC2",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp03.0\",1,3,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp03.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "PSK250RC3",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp03.0\",1,3,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp03.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.014044943820224719,
+  "message length": 712,
+  "mode": "PSK63RC5",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp01.0\",1,1,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp01.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.014044943820224719,
+  "message length": 712,
+  "mode": "QPSK125",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp01.0\",1,1,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp01.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.012640449438202247,
+  "message length": 712,
+  "mode": "QPSK31",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp03.0\",1,3,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp03.0"
+ },
+ {
+  "awgn s/n": 7.0,
+  "error rate": 0.007022471910112359,
+  "message length": 712,
+  "mode": "QPSK63",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp07.0\",1,7,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp07.0"
+ },
+ {
+  "awgn s/n": 14.0,
+  "error rate": 0.012640449438202247,
+  "message length": 712,
+  "mode": "DOMX11",
+  "simulation string": "\"Mid_Latitude_Disturbed_SNp14.0\",1,14,1,1,0,1,2,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_SNp14.0"
+ },
+ {
+  "awgn s/n": 5.0,
+  "error rate": 0.0056179775280898875,
+  "message length": 712,
+  "mode": "DOMX16",
+  "simulation string": "\"Mid_Latitude_Disturbed_SNp05.0\",1,5,1,1,0,1,2,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_SNp05.0"
+ },
+ {
+  "awgn s/n": 3.0,
+  "error rate": 0.014044943820224719,
+  "message length": 712,
+  "mode": "DOMX22",
+  "simulation string": "\"Mid_Latitude_Disturbed_SNp03.0\",1,3,1,1,0,1,2,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_SNp03.0"
+ },
+ {
+  "awgn s/n": 11.0,
+  "error rate": 0.007022471910112359,
+  "message length": 712,
+  "mode": "DOMX44",
+  "simulation string": "\"Mid_Latitude_Disturbed_SNp11.0\",1,11,1,1,0,1,2,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_SNp11.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "PSK125RC12",
+  "simulation string": "\"Mid_Latitude_Disturbed_SNp09.0\",1,9,1,1,0,1,2,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_SNp09.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.012640449438202247,
+  "message length": 712,
+  "mode": "PSK125RC5",
+  "simulation string": "\"Mid_Latitude_Disturbed_SNp01.0\",1,1,1,1,0,1,2,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_SNp01.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.018258426966292134,
+  "message length": 712,
+  "mode": "PSK63RC10",
+  "simulation string": "\"Mid_Latitude_Disturbed_SNp01.0\",1,1,1,1,0,1,2,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_SNp01.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.0028089887640449437,
+  "message length": 712,
+  "mode": "PSK63RC32",
+  "simulation string": "\"Mid_Latitude_Disturbed_SNp09.0\",1,9,1,1,0,1,2,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_SNp09.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.0014044943820224719,
+  "message length": 712,
+  "mode": "PSK63RC4",
+  "simulation string": "\"Mid_Latitude_Disturbed_SNp01.0\",1,1,1,1,0,1,2,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_SNp01.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.011235955056179775,
+  "message length": 712,
+  "mode": "PSK63RC5",
+  "simulation string": "\"Mid_Latitude_Disturbed_SNp01.0\",1,1,1,1,0,1,2,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_SNp01.0"
+ },
+ {
+  "awgn s/n": 7.0,
+  "error rate": 0.012640449438202247,
+  "message length": 712,
+  "mode": "DOMX11",
+  "simulation string": "\"Mid_Latitude_Disturbed_NVIS_SNp07.0\",1,7,1,1,0,1,7,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_NVIS_SNp07.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.012640449438202247,
+  "message length": 712,
+  "mode": "PSK63RC20",
+  "simulation string": "\"Mid_Latitude_Disturbed_NVIS_SNp09.0\",1,9,1,1,0,1,7,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_NVIS_SNp09.0"
+ },
+ {
+  "awgn s/n": 11.0,
+  "error rate": 0.0028089887640449437,
+  "message length": 712,
+  "mode": "PSK63RC5",
+  "simulation string": "\"Mid_Latitude_Disturbed_NVIS_SNp11.0\",1,11,1,1,0,1,7,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_NVIS_SNp11.0"
+ },
+ {
+  "awgn s/n": 7.0,
+  "error rate": 0.007022471910112359,
+  "message length": 712,
+  "mode": "THOR50x1",
+  "simulation string": "\"Mid_Latitude_Disturbed_NVIS_SNp07.0\",1,7,1,1,0,1,7,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_NVIS_SNp07.0"
+ },
+ {
   "awgn s/n": 10.0,
   "error rate": 0.008426966292134831,
   "message length": 712,
