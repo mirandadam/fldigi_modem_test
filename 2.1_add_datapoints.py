@@ -43,7 +43,7 @@ fldigi = t.start_fldigi(dn_fldigi_configuration_folder,
 
 
 new_datapoints = []
-target_error_rate=1/100
+target_error_rate=1/100 #1% error rate
 for p in simulation_profiles:
     #if p[0] not in ['BPSK31']:
     #if 'thor' not in p[0].lower():
