@@ -3,6 +3,254 @@
   "awgn s/n": 9.0,
   "error rate": 0.0,
   "message length": 712,
+  "mode": "PSK63RC32",
+  "simulation string": "\"CCIR_520_2_Doppler_Fading_SNp09.0\",1,9,1,0.2,10,1,0.5,0.2,5,0,0,0,0,",
+  "suffix": "CCIR_520_2_Doppler_Fading_SNp09.0"
+ },
+ {
+  "awgn s/n": 11.0,
+  "error rate": 0.3047752808988764,
+  "message length": 712,
+  "mode": "8PSK500F",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp11.0\",1,11,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp11.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.07303370786516854,
+  "message length": 712,
+  "mode": "BPSK1000",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp09.0\",1,9,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp09.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.07443820224719101,
+  "message length": 712,
+  "mode": "PSK125R",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp01.0\",1,1,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp01.0"
+ },
+ {
+  "awgn s/n": 15.0,
+  "error rate": 0.033707865168539325,
+  "message length": 712,
+  "mode": "PSK250RC5",
+  "simulation string": "\"CCIR_520_2_Poor_Conditions_SNp15.0\",1,15,1,0.5,0,1,2,0.5,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Poor_Conditions_SNp15.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.056179775280898875,
+  "message length": 712,
+  "mode": "DOMX44",
+  "simulation string": "\"Low_Latitude_Disturbed_SNp09.0\",1,9,1,10,0,1,6,10,0,0,0,0,0,",
+  "suffix": "Low_Latitude_Disturbed_SNp09.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.34691011235955055,
+  "message length": 712,
+  "mode": "8PSK500",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp09.0\",1,9,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp09.0"
+ },
+ {
+  "awgn s/n": 5.0,
+  "error rate": 0.054775280898876406,
+  "message length": 712,
+  "mode": "DOMEX5",
+  "simulation string": "\"Mid_Latitude_Disturbed_NVIS_SNp05.0\",1,5,1,1,0,1,7,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_NVIS_SNp05.0"
+ },
+ {
+  "awgn s/n": 11.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "PSK63RC32",
+  "simulation string": "\"CCIR_520_2_Doppler_Fading_SNp11.0\",1,11,1,0.2,10,1,0.5,0.2,5,0,0,0,0,",
+  "suffix": "CCIR_520_2_Doppler_Fading_SNp11.0"
+ },
+ {
+  "awgn s/n": 10.0,
+  "error rate": 0.047752808988764044,
+  "message length": 712,
+  "mode": "8PSK500F",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp10.0\",1,10,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp10.0"
+ },
+ {
+  "awgn s/n": 10.0,
+  "error rate": 0.12640449438202248,
+  "message length": 712,
+  "mode": "BPSK1000",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp10.0\",1,10,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp10.0"
+ },
+ {
+  "awgn s/n": 2.0,
+  "error rate": 0.07162921348314606,
+  "message length": 712,
+  "mode": "PSK125R",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp02.0\",1,2,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp02.0"
+ },
+ {
+  "awgn s/n": 14.0,
+  "error rate": 0.03651685393258427,
+  "message length": 712,
+  "mode": "PSK250RC5",
+  "simulation string": "\"CCIR_520_2_Poor_Conditions_SNp14.0\",1,14,1,0.5,0,1,2,0.5,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Poor_Conditions_SNp14.0"
+ },
+ {
+  "awgn s/n": 10.0,
+  "error rate": 0.05898876404494382,
+  "message length": 712,
+  "mode": "DOMX44",
+  "simulation string": "\"Low_Latitude_Disturbed_SNp10.0\",1,10,1,10,0,1,6,10,0,0,0,0,0,",
+  "suffix": "Low_Latitude_Disturbed_SNp10.0"
+ },
+ {
+  "awgn s/n": 10.0,
+  "error rate": 0.324438202247191,
+  "message length": 712,
+  "mode": "8PSK500",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp10.0\",1,10,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp10.0"
+ },
+ {
+  "awgn s/n": 6.0,
+  "error rate": 0.05758426966292135,
+  "message length": 712,
+  "mode": "DOMEX5",
+  "simulation string": "\"Mid_Latitude_Disturbed_NVIS_SNp06.0\",1,6,1,1,0,1,7,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_NVIS_SNp06.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.06741573033707865,
+  "message length": 712,
+  "mode": "THOR50x1",
+  "simulation string": "\"Mid_Latitude_Disturbed_NVIS_SNp01.0\",1,1,1,1,0,1,7,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_NVIS_SNp01.0"
+ },
+ {
+  "awgn s/n": 10.0,
+  "error rate": 0.0,
+  "message length": 712,
+  "mode": "PSK63RC32",
+  "simulation string": "\"CCIR_520_2_Doppler_Fading_SNp10.0\",1,10,1,0.2,10,1,0.5,0.2,5,0,0,0,0,",
+  "suffix": "CCIR_520_2_Doppler_Fading_SNp10.0"
+ },
+ {
+  "awgn s/n": 5.0,
+  "error rate": 0.04915730337078652,
+  "message length": 712,
+  "mode": "8PSK125FL",
+  "simulation string": "\"CCIR_520_2_Flutter_Fading_SNp05.0\",1,5,1,10,0,1,0.5,10,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Flutter_Fading_SNp05.0"
+ },
+ {
+  "awgn s/n": -15.0,
+  "error rate": 0.0028089887640449437,
+  "message length": 712,
+  "mode": "Olivia-8-250",
+  "simulation string": "\"CCIR_520_2_Flutter_Fading_SNn15.0\",1,-15,1,10,0,1,0.5,10,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Flutter_Fading_SNn15.0"
+ },
+ {
+  "awgn s/n": 12.0,
+  "error rate": 0.375,
+  "message length": 712,
+  "mode": "8PSK500F",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp12.0\",1,12,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp12.0"
+ },
+ {
+  "awgn s/n": 12.0,
+  "error rate": 0.398876404494382,
+  "message length": 712,
+  "mode": "BPSK1000",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp12.0\",1,12,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp12.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.8384831460674157,
+  "message length": 712,
+  "mode": "PSK500C2",
+  "simulation string": "\"CCIR_520_2_Good_Conditions_SNp01.0\",1,1,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Good_Conditions_SNp01.0"
+ },
+ {
+  "awgn s/n": 4.0,
+  "error rate": 0.06882022471910113,
+  "message length": 712,
+  "mode": "PSK125R",
+  "simulation string": "\"Mid_Latitude_Moderate_SNp04.0\",1,4,1,0.5,0,1,1,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Moderate_SNp04.0"
+ },
+ {
+  "awgn s/n": 12.0,
+  "error rate": 0.0351123595505618,
+  "message length": 712,
+  "mode": "PSK250RC5",
+  "simulation string": "\"CCIR_520_2_Poor_Conditions_SNp12.0\",1,12,1,0.5,0,1,2,0.5,0,0,0,0,0,",
+  "suffix": "CCIR_520_2_Poor_Conditions_SNp12.0"
+ },
+ {
+  "awgn s/n": 12.0,
+  "error rate": 0.05056179775280899,
+  "message length": 712,
+  "mode": "DOMX44",
+  "simulation string": "\"Low_Latitude_Disturbed_SNp12.0\",1,12,1,10,0,1,6,10,0,0,0,0,0,",
+  "suffix": "Low_Latitude_Disturbed_SNp12.0"
+ },
+ {
+  "awgn s/n": 12.0,
+  "error rate": 0.3160112359550562,
+  "message length": 712,
+  "mode": "8PSK500",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp12.0\",1,12,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp12.0"
+ },
+ {
+  "awgn s/n": 1.0,
+  "error rate": 0.021067415730337078,
+  "message length": 712,
+  "mode": "PSK250RC3",
+  "simulation string": "\"Mid_Latitude_Quiet_SNp01.0\",1,1,1,0.5,0,1,0.5,0.5,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Quiet_SNp01.0"
+ },
+ {
+  "awgn s/n": -3.0,
+  "error rate": 0.02949438202247191,
+  "message length": 712,
+  "mode": "QPSK31",
+  "simulation string": "\"Mid_Latitude_Disturbed_SNn03.0\",1,-3,1,1,0,1,2,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_SNn03.0"
+ },
+ {
+  "awgn s/n": 4.0,
+  "error rate": 0.04915730337078652,
+  "message length": 712,
+  "mode": "DOMEX5",
+  "simulation string": "\"Mid_Latitude_Disturbed_NVIS_SNp04.0\",1,4,1,1,0,1,7,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_NVIS_SNp04.0"
+ },
+ {
+  "awgn s/n": 2.0,
+  "error rate": 0.06320224719101124,
+  "message length": 712,
+  "mode": "THOR50x1",
+  "simulation string": "\"Mid_Latitude_Disturbed_NVIS_SNp02.0\",1,2,1,1,0,1,7,1,0,0,0,0,0,",
+  "suffix": "Mid_Latitude_Disturbed_NVIS_SNp02.0"
+ },
+ {
+  "awgn s/n": 9.0,
+  "error rate": 0.0,
+  "message length": 712,
   "mode": "BPSK63F",
   "simulation string": "\"CCIR_520_2_Good_Conditions_SNp09.0\",1,9,1,0.1,0,1,0.5,0.1,0,0,0,0,0,",
   "suffix": "CCIR_520_2_Good_Conditions_SNp09.0"
