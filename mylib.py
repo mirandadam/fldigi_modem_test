@@ -180,7 +180,7 @@ def start_fldigi(configuration_folder, home_folder,
         fldigi = xmlrpc.client.ServerProxy("http://127.0.0.1:7362/")  # returns a xmlrpc connection
         if fldigi.modem.get_names():
             print('***Running fldigi found. Please terminate FLDIGI before running this script.***')
-            return None
+            sys.exit()
     except ConnectionRefusedError:
         print('No running fldigi session found on local port 7362. Opening a new one.')
 
@@ -373,29 +373,33 @@ def wav_decode(client, fn_wavfile, fn_audio, wait_s=0):
     return rx_data
 
 
-def suggest_samples(snr_list, error_rate_list, threshold_to_refine, db_interval):
+def suggest_samples(snr_list, error_rate_list, target_error, db_interval):
     assert len(snr_list) == len(error_rate_list)
-    assert db_interval > 0
-    assert threshold_to_refine > 0
+    assert db_interval >= 0
+    assert target_error > 0
     aux = np.argsort(snr_list)
     snr = np.array(snr_list)[aux]
     error = np.array(error_rate_list)[aux]
     if len(snr_list) == 0:
         # if the list is empty, suggest to try with -16 and 16dB
-        return [-16., 16.]
+        return [0]
     new_snrs = []
     for i in range(len(error)-1):
         a = error[i]
         b = error[i+1]
-        if max(a, b) > threshold_to_refine and min(a, b) < threshold_to_refine:
+        if max(a, b) > target_error and min(a, b) < target_error:
             # if we found a crossing point
             if abs(snr[i]-snr[i+1]) > db_interval:
                 # if the interval is large enough, insert another sample
-                new_snrs.append((snr[i]+snr[i+1])/2)
-    if error[-1] > threshold_to_refine:
+                new_snr = (snr[i]+snr[i+1])/2.
+                new_snrs.append(new_snr)
+    if error[-1] > target_error:
         # if even the best snr is too bad, try with a better one.
-        new_snrs.append(snr[-1]+5)
-    if error[0] < threshold_to_refine:
+        new_snr = snr[-1]+8
+        if(new_snr < 17):
+            new_snrs.append(new_snr)
+    if error[0] < target_error:
         # if even the worst snr is still too good, try with a worse one.
-        new_snrs.append(snr[0]-5)
+        new_snrs.append(snr[0]-8)
+
     return new_snrs

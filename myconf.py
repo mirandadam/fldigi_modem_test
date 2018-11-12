@@ -6,7 +6,8 @@ if os.path.isfile(dn_local_folder):
 
 
 # input and output paths, configuration files.
-fn_test_message = dn_local_folder+'t0_joao_3_16.txt'
+#fn_test_message = dn_local_folder+'t0_joao_3_16.txt'
+fn_test_message = dn_local_folder + 't2_cancao_do_exilio.txt'
 dn_fldigi_configuration_folder = dn_local_folder+'fldigi_conf'+os.sep
 fn_macro_file = dn_fldigi_configuration_folder+'macros'+os.sep+'macros.mdf'
 dn_fldigi_home_folder = dn_local_folder+'fldigi_home'+os.sep
