@@ -25,13 +25,74 @@ To replicate any single data point manually on the computer you use with your ra
 * Use the "Playback" option in FLDIGI to try to decode the audio.
 * Compare the decoded text with the original test data.
 
+## Caveats
+
+* At this time, test results only have one measure at the conditions of each datapoint. The error rate measured is not precisely repeatable between measurements because of the random nature of noise, more measurements are necessary to increase confidence. Be wary of outliers.
+* I recommend you run this in a virtual machine with Ubuntu 18.04.1 since custom versions of FLDIGI and linsim are needed and your FLDIGI configuration may be overwritten.
+* This script may overwrite your fldigi configuration (it is not designed to do that, but I may have missed something).
+* The behaviour of FLDIGI will be very odd during the simulations - the waterfall will freeze and the text will appear much faster than normal. This is because the scripts uses little known functionality from FLDIGI that allows coding and decoding to happen much faster than the audio output would run (namely WAV_FILE and HS:on macros).
+* Tested only on Ubuntu 18.04.1. Results of the performance of the modems should be valid for any installation that FLDIGI runs on.
+* The modifications to FLDIGI and linsim were made with care, but this test suite is very hacky. One needs be willing to code and must have at least a basic grasp of python to play with it. Configuration is made by editing the main .py file.
+* Test data should have several '===='s in the beginning and several '++++'s in the end. Only the part between the last correctly decoded triplet '===' and the first following triplet '+++' is considered for comparison. This makes it easier to locate the message within the garbage that may come before or after and gives some time for the algorithms with error correction to kick in.
+* Since this script uses rarely used features of FLDIGI and a wholly unsupported mode of operation of linsim, several bugs were found. These are quick and dirty notes for me not to forget to document them:
+    * fldigi stops HS:on and closes the input file prematurely on MT63 and Olivia playback. The result is that if you are waiting for the file to be closed to run get_rx, you will get an incomplete message, that finishes playing at normal speed.
+    * THOR modes somehow give different results from get_rx and the text displayed on the screen (!!!), the beginning of the text usually shows correctly on the RX pane but shows up garbled in get_rx.
+    * linsim has a serious issue with batch processing in which the values of the simulation are not updated in time for the simulation to run. The AWGN series mode fixed this by explicitly waiting for the values to be updated. The modified version of linsim includes a patch for that that uses a counter guarded by a pthread lock to keep track of all the pending parameter updates.
+
+
 ## Results
 
+See the Caveats section. These are single samples taken at very specific simulated conditions, they do not necessarily reflect real world performance. Also running everything again from scratch should yield slightly different results due to the random nature of noise. Finally, there may be outliers - points in which the measured error rate was unusually low or unusually high - and repeating the measurement may yield very different results.
+
+The following graphics depict the performance of each mode of operation under several Linsim profiles. All the profiles are linear, so nonlinear effects like transmitter saturation or mic/speaker nonlinearities are not modelled. The signal to noise ratio assigned to a mode is the S/N that, under the simulated conditions, produces a character error rate of 1%. The error rate is the amount of edits necessary to transform the decoded message into the original message (see [Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance)) divided by the total amount of characters in the original message.
+
+In each graphic, there are several modes that are in the "pareto frontier" ([wikipedia link](https://en.wikipedia.org/wiki/Pareto_efficiency)), which means that they performed better than all the others in one measure and at least as good in the other ones. For example: in the Direct_Path profile, the modes in the pareto frontier are:
+
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| 8PSK1000 | 391.8 | 10.7 |
+| 8PSK1200F | 319.4 | 6.8 |
+| 8PSK1000F | 259.6 | 5.8 |
+| PSK1000C2 | 227.1 | 4.9 |
+| PSK800C2 | 181.7 | 3.3 |
+| PSK1000RC2 | 129.8 | 0.4 |
+| PSK125RC16 | 129.7 | -0.2 |
+| PSK250RC7 | 113.5 | -1.1 |
+| PSK800RC2 | 103.8 | -1.5 |
+| PSK250RC5 | 81.1 | -3.1 |
+| PSK500RC2 | 64.9 | -3.3 |
+| PSK1000R | 64.9 | -3.3 |
+| PSK250RC3 | 48.7 | -5.3 |
+| PSK125RC5 | 40.5 | -5.5 |
+| MFSK128L | 32.4 | -8.1 |
+| MFSK128 | 32.4 | -8.4 |
+| MFSK64 | 16.2 | -11.1 |
+| MFSK64L | 16.2 | -11.2 |
+| PSK125R | 8.1 | -12.5 |
+| MFSK32 | 8.1 | -13.6 |
+| MFSK31 | 6.1 | -14.2 |
+| MFSK22 | 5.6 | -15.2 |
+| BPSK63F | 4.1 | -16.1 |
+| MFSK16 | 4.1 | -17.0 |
+| MFSK11 | 2.8 | -18.1 |
+| MFSK8 | 2.5 | -18.1 |
+| THOR5 | 1.4 | -19.0 |
+| MFSK4 | 1.3 | -21.1 |
+| DOMEX Micro | 1.0 | -21.4 |
+| THOR Micro | 0.5 | -22.8 |
+
+
+
+Which means that for all other datapoints, one of the above performed strictly better - for example: THOR 11 is not in the pareto border because, in the test, it transmitted 2.8 cps and managed to keep the error rate until S/N=-16.4 dB. Both MFSK11 and MFSK16 performed at least as good in all the measurements and strictly better in at least one measurement. So, in this test case, taking into consideration only the speed and sensitivity metrics displayed, there would be no advantage in using THOR11 instead of one of the modes in the pareto frontier.
+
+
+### Raw data
 Raw datapoints in json format: [datapoints.json](results/datapoints.json)
 
 Information about the tested modes in json format: [mode_info.json](results/mode_info.json)
 
 
+### Scatter plots
 ![Direct_Path](results/Direct_Path.png)
 
 
@@ -62,16 +123,296 @@ Information about the tested modes in json format: [mode_info.json](results/mode
 
 ![Frequency_Shifter](results/Frequency_Shifter.png)
 
-## Caveats
+### Pareto frontier
 
-* At this time, test results only have one measure at the conditions of each datapoint. The error rate measured is not precisely repeatable between measurements because of the random nature of noise, more measurements are necessary to increase confidence. Be wary of outliers.
-* I recommend you run this in a virtual machine with Ubuntu 18.04.1 since custom versions of FLDIGI and linsim are needed and your FLDIGI configuration may be overwritten.
-* This script may overwrite your fldigi configuration (it is not designed to do that, but I may have missed something).
-* The behaviour of FLDIGI will be very odd during the simulations - the waterfall will freeze and the text will appear much faster than normal. This is because the scripts uses little known functionality from FLDIGI that allows coding and decoding to happen much faster than the audio output would run (namely WAV_FILE and HS:on macros).
-* Tested only on Ubuntu 18.04.1. Results of the performance of the modems should be valid for any installation that FLDIGI runs on.
-* The modifications to FLDIGI and linsim were made with care, but this test suite is very hacky. One needs be willing to code and must have at least a basic grasp of python to play with it. Configuration is made by editing the main .py file.
-* Test data should have several '===='s in the beginning and several '++++'s in the end. Only the part between the last correctly decoded triplet '===' and the first following triplet '+++' is considered for comparison. This makes it easier to locate the message within the garbage that may come before or after and gives some time for the algorithms with error correction to kick in.
-* Since this script uses rarely used features of FLDIGI and a wholly unsupported mode of operation of linsim, several bugs were found. These are quick and dirty notes for me not to forget to document them:
-    * fldigi stops HS:on and closes the input file prematurely on MT63 and Olivia playback. The result is that if you are waiting for the file to be closed to run get_rx, you will get an incomplete message, that finishes playing at normal speed.
-    * THOR modes somehow give different results from get_rx and the text displayed on the screen (!!!), the beginning of the text usually shows correctly on the RX pane but shows up garbled in get_rx.
-    * linsim has a serious issue with batch processing in which the values of the simulation are not updated in time for the simulation to run. The AWGN series mode fixed this by explicitly waiting for the values to be updated. The modified version of linsim includes a patch for that that uses a counter guarded by a pthread lock to keep track of all the pending parameter updates.
+Direct_Path
+
+Modes in the pareto frontier:
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| 8PSK1000 | 391.8 | 10.7 |
+| 8PSK1200F | 319.4 | 6.8 |
+| 8PSK1000F | 259.6 | 5.8 |
+| PSK1000C2 | 227.1 | 4.9 |
+| PSK800C2 | 181.7 | 3.3 |
+| PSK1000RC2 | 129.8 | 0.4 |
+| PSK125RC16 | 129.7 | -0.2 |
+| PSK250RC7 | 113.5 | -1.1 |
+| PSK800RC2 | 103.8 | -1.5 |
+| PSK250RC5 | 81.1 | -3.1 |
+| PSK500RC2 | 64.9 | -3.3 |
+| PSK1000R | 64.9 | -3.3 |
+| PSK250RC3 | 48.7 | -5.3 |
+| PSK125RC5 | 40.5 | -5.5 |
+| MFSK128L | 32.4 | -8.1 |
+| MFSK128 | 32.4 | -8.4 |
+| MFSK64 | 16.2 | -11.1 |
+| MFSK64L | 16.2 | -11.2 |
+| PSK125R | 8.1 | -12.5 |
+| MFSK32 | 8.1 | -13.6 |
+| MFSK31 | 6.1 | -14.2 |
+| MFSK22 | 5.6 | -15.2 |
+| BPSK63F | 4.1 | -16.1 |
+| MFSK16 | 4.1 | -17.0 |
+| MFSK11 | 2.8 | -18.1 |
+| MFSK8 | 2.5 | -18.1 |
+| THOR5 | 1.4 | -19.0 |
+| MFSK4 | 1.3 | -21.1 |
+| DOMEX Micro | 1.0 | -21.4 |
+| THOR Micro | 0.5 | -22.8 |
+
+CCIR_520_2_Doppler_Fading
+
+Modes in the pareto frontier:
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| PSK125RC16 | 129.7 | 8.0 |
+| PSK500RC4 | 129.7 | 7.9 |
+| PSK250RC7 | 113.5 | 5.8 |
+| PSK125RC12 | 97.4 | 5.7 |
+| PSK250RC6 | 97.3 | 5.6 |
+| PSK500RC3 | 97.3 | 4.5 |
+| PSK125RC10 | 81.1 | 3.0 |
+| PSK250RC3 | 48.7 | 0.4 |
+| MFSK128L | 32.4 | -0.8 |
+| MT63-2KL | 16.5 | -1.4 |
+| MFSK64 | 16.2 | -3.5 |
+| MFSK64L | 16.2 | -7.2 |
+| Olivia-16-1K | 3.2 | -8.5 |
+| Olivia-8-500 | 2.4 | -9.4 |
+| Olivia-64-2K | 2.4 | -9.5 |
+| THOR5 | 1.4 | -12.0 |
+| THOR4 | 1.0 | -12.1 |
+
+CCIR_520_2_Flutter_Fading
+
+Modes in the pareto frontier:
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| PSK125RC16 | 129.7 | 9.7 |
+| PSK500RC4 | 129.7 | 9.3 |
+| PSK250RC7 | 113.5 | 6.2 |
+| PSK125RC12 | 97.4 | 4.8 |
+| PSK250RC6 | 97.3 | 3.9 |
+| PSK500RC3 | 97.3 | 3.8 |
+| PSK250RC5 | 81.1 | 2.7 |
+| PSK125RC5 | 40.5 | 1.6 |
+| MFSK128L | 32.4 | -4.0 |
+| MFSK128 | 32.4 | -4.2 |
+| MFSK64 | 16.2 | -5.3 |
+| MFSK64L | 16.2 | -7.0 |
+| PSK125R | 8.1 | -7.1 |
+| MFSK32 | 8.1 | -9.4 |
+| MFSK22 | 5.6 | -10.2 |
+| MFSK16 | 4.1 | -11.4 |
+| Olivia-16-1K | 3.2 | -12.6 |
+| MFSK8 | 2.5 | -13.0 |
+| Olivia-8-500 | 2.4 | -13.4 |
+| Olivia-32-1K | 2.0 | -14.6 |
+| Olivia-16-500 | 1.6 | -15.1 |
+| Olivia-8-250 | 1.2 | -15.4 |
+
+CCIR_520_2_Good_Conditions
+
+Modes in the pareto frontier:
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| 8PSK1000F | 259.6 | 12.0 |
+| PSK500C4 | 227.1 | 8.9 |
+| PSK1000C2 | 227.1 | 7.9 |
+| PSK1000RC2 | 129.8 | -0.3 |
+| PSK500RC4 | 129.7 | -0.5 |
+| PSK800RC2 | 103.8 | -1.1 |
+| MFSK128L | 32.4 | -4.1 |
+| MFSK64L | 16.2 | -4.3 |
+| MT63-1KS | 8.3 | -5.0 |
+| MT63-500S | 4.1 | -5.4 |
+| MT63-500L | 4.1 | -7.0 |
+| MFSK11 | 2.8 | -8.3 |
+| Olivia-64-2K | 2.4 | -9.2 |
+| THOR Micro | 0.5 | -12.1 |
+
+Mid_Latitude_Moderate
+
+Modes in the pareto frontier:
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| PSK125RC16 | 129.7 | 4.6 |
+| PSK250RC7 | 113.5 | -0.4 |
+| PSK63RC5 | 20.3 | -1.9 |
+| MT63-2KS | 16.5 | -3.0 |
+| MFSK64L | 16.2 | -5.5 |
+| MT63-1KS | 8.3 | -9.0 |
+| MT63-500S | 4.1 | -9.5 |
+| Olivia-16-1K | 3.2 | -10.3 |
+| MFSK8 | 2.5 | -12.2 |
+| MFSK4 | 1.3 | -15.2 |
+
+CCIR_520_2_Poor_Conditions
+
+Modes in the pareto frontier:
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| PSK125RC16 | 129.7 | 5.6 |
+| PSK63RC32 | 129.7 | 4.6 |
+| PSK125RC12 | 97.4 | 1.5 |
+| MFSK128L | 32.4 | -2.2 |
+| PSK63RC5 | 20.3 | -2.3 |
+| MT63-2KL | 16.5 | -4.0 |
+| MFSK64L | 16.2 | -4.7 |
+| MT63-1KS | 8.3 | -8.3 |
+| MT63-500L | 4.1 | -10.0 |
+| MT63-500S | 4.1 | -10.2 |
+| Olivia-64-2K | 2.4 | -10.6 |
+| Olivia-16-500 | 1.6 | -12.4 |
+| MFSK4 | 1.3 | -15.6 |
+
+Frequency_Shifter
+
+Modes in the pareto frontier:
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| DOMX88 | 41.4 | 9.9 |
+| THOR100 | 26.0 | 5.6 |
+| THOR50x2 | 13.0 | 1.0 |
+| THOR50x1 | 13.0 | -9.1 |
+| Olivia-8-1K | 4.8 | -12.6 |
+| Olivia-4-500 | 3.2 | -13.1 |
+
+High_Latitude_Disturbed
+
+Modes in the pareto frontier:
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| MFSK64L | 16.2 | -4.1 |
+| MFSK64 | 16.2 | -4.1 |
+| MFSK32 | 8.1 | -7.1 |
+| THOR25x4 | 6.5 | -8.2 |
+| Olivia-16-1K | 3.2 | -11.3 |
+| Olivia-8-500 | 2.4 | -12.0 |
+| Olivia-64-2K | 2.4 | -13.3 |
+| Olivia-32-1K | 2.0 | -14.1 |
+| Olivia-16-500 | 1.6 | -14.5 |
+
+High_Latitude_Moderate
+
+Modes in the pareto frontier:
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| PSK63RC20 | 81.1 | 15.9 |
+| PSK125RC5 | 40.5 | 4.0 |
+| MFSK128L | 32.4 | -1.6 |
+| MFSK64 | 16.2 | -5.8 |
+| MFSK64L | 16.2 | -5.8 |
+| MFSK32 | 8.1 | -10.0 |
+| MFSK22 | 5.6 | -10.1 |
+| MFSK16 | 4.1 | -12.2 |
+| Olivia-16-1K | 3.2 | -12.7 |
+| Olivia-8-500 | 2.4 | -13.7 |
+| Olivia-64-2K | 2.4 | -14.2 |
+| Olivia-32-1K | 2.0 | -14.6 |
+| Olivia-16-500 | 1.6 | -15.1 |
+| Olivia-8-250 | 1.2 | -16.1 |
+
+Low_Latitude_Disturbed
+
+Modes in the pareto frontier:
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| MFSK64 | 16.2 | -3.1 |
+| MFSK64L | 16.2 | -4.4 |
+| MFSK32 | 8.1 | -9.1 |
+| MFSK22 | 5.6 | -10.5 |
+| MFSK16 | 4.1 | -10.6 |
+| Olivia-16-1K | 3.2 | -12.1 |
+| Olivia-8-500 | 2.4 | -12.5 |
+| Olivia-64-2K | 2.4 | -14.1 |
+| Olivia-16-500 | 1.6 | -15.3 |
+| Olivia-8-250 | 1.2 | -15.7 |
+
+Low_Latitude_Moderate
+
+Modes in the pareto frontier:
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| PSK125RC16 | 129.7 | 9.0 |
+| PSK125RC12 | 97.4 | 4.7 |
+| PSK125RC10 | 81.1 | 4.0 |
+| PSK63RC20 | 81.1 | 3.9 |
+| PSK125RC5 | 40.5 | 0.8 |
+| MFSK128L | 32.4 | -2.1 |
+| MT63-2KL | 16.5 | -5.4 |
+| MFSK64L | 16.2 | -5.4 |
+| MT63-1KS | 8.3 | -7.5 |
+| MT63-1KL | 8.3 | -8.0 |
+| MFSK22 | 5.6 | -9.2 |
+| MFSK16 | 4.1 | -12.0 |
+| MFSK11 | 2.8 | -13.1 |
+| MFSK8 | 2.5 | -13.6 |
+| Olivia-16-500 | 1.6 | -14.3 |
+| MFSK4 | 1.3 | -16.1 |
+
+Mid_Latitude_Quiet
+
+Modes in the pareto frontier:
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| PSK500C4 | 227.1 | 15.0 |
+| PSK1000C2 | 227.1 | 13.0 |
+| PSK125RC16 | 129.7 | 5.8 |
+| PSK500RC4 | 129.7 | 4.9 |
+| PSK63RC32 | 129.7 | 4.8 |
+| PSK250RC7 | 113.5 | -0.1 |
+| PSK800RC2 | 103.8 | -0.1 |
+| MFSK128L | 32.4 | -1.5 |
+| MT63-2KL | 16.5 | -3.7 |
+| MFSK64L | 16.2 | -6.3 |
+| MT63-1KS | 8.3 | -8.1 |
+| MT63-1KL | 8.3 | -8.3 |
+| MT63-500S | 4.1 | -9.2 |
+| MT63-500L | 4.1 | -10.2 |
+| MFSK11 | 2.8 | -10.9 |
+| MFSK8 | 2.5 | -11.3 |
+| Olivia-16-500 | 1.6 | -11.4 |
+| MFSK4 | 1.3 | -14.8 |
+
+Mid_Latitude_Disturbed
+
+Modes in the pareto frontier:
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| PSK125RC16 | 129.7 | 6.5 |
+| PSK63RC20 | 81.1 | 5.9 |
+| PSK125RC10 | 81.1 | 5.7 |
+| PSK125RC5 | 40.5 | 1.2 |
+| MFSK128L | 32.4 | -1.0 |
+| MFSK128 | 32.4 | -1.7 |
+| MT63-2KL | 16.5 | -5.1 |
+| MT63-1KS | 8.3 | -8.0 |
+| MT63-1KL | 8.3 | -8.6 |
+| MFSK22 | 5.6 | -10.1 |
+| MT63-500L | 4.1 | -10.3 |
+| MFSK16 | 4.1 | -11.3 |
+| MFSK11 | 2.8 | -13.2 |
+| Olivia-16-500 | 1.6 | -13.2 |
+| MFSK4 | 1.3 | -17.3 |
+
+Mid_Latitude_Disturbed_NVIS
+
+Modes in the pareto frontier:
+| Mode | Speed (cps) | S/N 1% |
+| ---- | ----------- | ------ |
+| PSK63RC20 | 81.1 | 9.2 |
+| PSK63RC10 | 40.5 | 5.5 |
+| MT63-2KL | 16.5 | -4.5 |
+| MT63-1KS | 8.3 | -8.7 |
+| MFSK22 | 5.6 | -9.6 |
+| MT63-500S | 4.1 | -9.6 |
+| MT63-500L | 4.1 | -10.3 |
+| MFSK16 | 4.1 | -10.9 |
+| MFSK11 | 2.8 | -11.4 |
+| MFSK8 | 2.5 | -11.5 |
+| Olivia-64-2K | 2.4 | -12.4 |
+| Olivia-32-1K | 2.0 | -12.5 |
+| Olivia-16-500 | 1.6 | -13.4 |
+| MFSK4 | 1.3 | -16.5 |
