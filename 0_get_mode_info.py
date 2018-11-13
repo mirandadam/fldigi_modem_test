@@ -32,4 +32,4 @@ for m in modes_to_test:
     data.append(datum)
     print()
 
-open(fn_mode_info, 'w').write(json.dumps(data, sort_keys=True))
+open(fn_mode_info, 'w').write(json.dumps(data, sort_keys=True, indent=1))

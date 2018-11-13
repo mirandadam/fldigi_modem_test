@@ -1,1 +1,596 @@
-[{"bandwidth 95% (Hz)": 1091.9178130141063, "mode": "8PSK1000", "overhead (s)": 1.263598828125, "speed (char/s)": 416.4633154384253}, {"bandwidth 95% (Hz)": 1081.0556079170597, "mode": "8PSK1000F", "overhead (s)": 1.818371875, "speed (char/s)": 275.62446167097335}, {"bandwidth 95% (Hz)": 1313.903002309469, "mode": "8PSK1200F", "overhead (s)": 2.579552083333333, "speed (char/s)": 339.2226148409894}, {"bandwidth 95% (Hz)": 141.61177838047251, "mode": "8PSK125", "overhead (s)": 2.05265, "speed (char/s)": 51.679586563307495}, {"bandwidth 95% (Hz)": 138.9207807118255, "mode": "8PSK125F", "overhead (s)": 4.617299999999999, "speed (char/s)": 25.839793281653748}, {"bandwidth 95% (Hz)": 138.8463745934573, "mode": "8PSK125FL", "overhead (s)": 4.617291666666667, "speed (char/s)": 25.834230355220665}, {"bandwidth 95% (Hz)": 289.1743119266057, "mode": "8PSK250", "overhead (s)": 1.602325, "speed (char/s)": 103.35917312661499}, {"bandwidth 95% (Hz)": 274.1994510521504, "mode": "8PSK250F", "overhead (s)": 3.2646499999999996, "speed (char/s)": 51.679586563307495}, {"bandwidth 95% (Hz)": 273.5590118938703, "mode": "8PSK250FL", "overhead (s)": 3.2646499999999996, "speed (char/s)": 51.679586563307495}, {"bandwidth 95% (Hz)": 549.6183206106871, "mode": "8PSK500", "overhead (s)": 1.3751604166666667, "speed (char/s)": 206.62935858803272}, {"bandwidth 95% (Hz)": 541.5834996673316, "mode": "8PSK500F", "overhead (s)": 2.04474375, "speed (char/s)": 137.81223083548662}, {"bandwidth 95% (Hz)": 1005.9114471163127, "mode": "BPSK1000", "overhead (s)": 0.512776171875, "speed (char/s)": 121.59787203723936}, {"bandwidth 95% (Hz)": 125.97871299241524, "mode": "BPSK125", "overhead (s)": 2.3103583333333333, "speed (char/s)": 15.234226228259491}, {"bandwidth 95% (Hz)": 250.88631529189342, "mode": "BPSK250", "overhead (s)": 2.3071791666666663, "speed (char/s)": 30.468452456518982}, {"bandwidth 95% (Hz)": 31.776200050263924, "mode": "BPSK31", "overhead (s)": 2.3294333333333332, "speed (char/s)": 3.8085565570648727}, {"bandwidth 95% (Hz)": 500.77450763443267, "mode": "BPSK500", "overhead (s)": 2.3055895833333335, "speed (char/s)": 60.93690491303796}, {"bandwidth 95% (Hz)": 63.32503113324992, "mode": "BPSK63", "overhead (s)": 2.3167166666666668, "speed (char/s)": 7.6171131141297455}, {"bandwidth 95% (Hz)": 69.44931910711784, "mode": "BPSK63F", "overhead (s)": 4.759766666666667, "speed (char/s)": 4.306014066312616}, {"bandwidth 95% (Hz)": 34.12920448478371, "mode": "DOMEX Micro", "overhead (s)": 9.535416666666666, "speed (char/s)": 1.0367170626349893}, {"bandwidth 95% (Hz)": 132.8373937865108, "mode": "DOMEX4", "overhead (s)": 7.4421333333333335, "speed (char/s)": 2.024838012958963}, {"bandwidth 95% (Hz)": 183.07910246568963, "mode": "DOMEX5", "overhead (s)": 5.400268880208333, "speed (char/s)": 2.790520224913023}, {"bandwidth 95% (Hz)": 265.6932777249376, "mode": "DOMEX8", "overhead (s)": 3.7210596354166667, "speed (char/s)": 4.049560717573722}, {"bandwidth 95% (Hz)": 183.0502708165668, "mode": "DOMX11", "overhead (s)": 2.7000744791666667, "speed (char/s)": 5.581119537697265}, {"bandwidth 95% (Hz)": 265.6536845926462, "mode": "DOMX16", "overhead (s)": 1.8605263020833334, "speed (char/s)": 8.098890831591579}, {"bandwidth 95% (Hz)": 366.1019081328659, "mode": "DOMX22", "overhead (s)": 1.3500397135416666, "speed (char/s)": 11.162547328183251}, {"bandwidth 95% (Hz)": 1464.661250021442, "mode": "DOMX44", "overhead (s)": 0.6749546875, "speed (char/s)": 22.323764344762633}, {"bandwidth 95% (Hz)": 1464.2610053003837, "mode": "DOMX88", "overhead (s)": 0.33747734375, "speed (char/s)": 44.64752868952527}, {"bandwidth 95% (Hz)": 162.5597170127403, "mode": "MFSK11", "overhead (s)": 9.229548697916666, "speed (char/s)": 2.9666873459196075}, {"bandwidth 95% (Hz)": 1878.6758111766867, "mode": "MFSK128", "overhead (s)": 1.3629596354166666, "speed (char/s)": 34.43482939514863}, {"bandwidth 95% (Hz)": 1935.3283458021606, "mode": "MFSK128L", "overhead (s)": 20.226975, "speed (char/s)": 34.45305770887167}, {"bandwidth 95% (Hz)": 235.98236688040197, "mode": "MFSK16", "overhead (s)": 6.359733333333333, "speed (char/s)": 4.305396096440872}, {"bandwidth 95% (Hz)": 325.02677095394665, "mode": "MFSK22", "overhead (s)": 4.614716796874999, "speed (char/s)": 5.933548888039032}, {"bandwidth 95% (Hz)": 231.25907701556707, "mode": "MFSK31", "overhead (s)": 4.229159635416667, "speed (char/s)": 6.458264307830477}, {"bandwidth 95% (Hz)": 471.8776136046831, "mode": "MFSK32", "overhead (s)": 3.1798666666666664, "speed (char/s)": 8.610792192881744}, {"bandwidth 95% (Hz)": 121.0202526132407, "mode": "MFSK4", "overhead (s)": 20.5048, "speed (char/s)": 1.3455328310010766}, {"bandwidth 95% (Hz)": 942.400275103164, "mode": "MFSK64", "overhead (s)": 2.37395, "speed (char/s)": 17.226528854435834}, {"bandwidth 95% (Hz)": 962.9328436516271, "mode": "MFSK64L", "overhead (s)": 20.45395, "speed (char/s)": 17.226528854435834}, {"bandwidth 95% (Hz)": 242.04594947735222, "mode": "MFSK8", "overhead (s)": 10.2524, "speed (char/s)": 2.691065662002153}, {"bandwidth 95% (Hz)": 999.8698848480908, "mode": "MT63-1KL", "overhead (s)": 10.3508125, "speed (char/s)": 8.533333333333333}, {"bandwidth 95% (Hz)": 999.8831073408589, "mode": "MT63-1KS", "overhead (s)": 7.1508125, "speed (char/s)": 8.533333333333333}, {"bandwidth 95% (Hz)": 2000.0315119430265, "mode": "MT63-2KL", "overhead (s)": 7.15940625, "speed (char/s)": 17.066666666666666}, {"bandwidth 95% (Hz)": 2000.0, "mode": "MT63-2KS", "overhead (s)": 5.55940625, "speed (char/s)": 17.066666666666666}, {"bandwidth 95% (Hz)": 489.25477749123866, "mode": "MT63-500L", "overhead (s)": 16.733625, "speed (char/s)": 4.266666666666667}, {"bandwidth 95% (Hz)": 488.2581674930384, "mode": "MT63-500S", "overhead (s)": 10.333625, "speed (char/s)": 4.266666666666667}, {"bandwidth 95% (Hz)": 945.6512800833289, "mode": "Olivia-16-1K", "overhead (s)": 2.7872000000000003, "speed (char/s)": 3.3244680851063833}, {"bandwidth 95% (Hz)": 472.79529075204937, "mode": "Olivia-16-500", "overhead (s)": 3.5264, "speed (char/s)": 1.6622340425531916}, {"bandwidth 95% (Hz)": 958.26880721316, "mode": "Olivia-32-1K", "overhead (s)": 3.648, "speed (char/s)": 2.0833333333333335}, {"bandwidth 95% (Hz)": 234.46514837819177, "mode": "Olivia-4-250", "overhead (s)": 2.4874666666666667, "speed (char/s)": 1.6651865008880993}, {"bandwidth 95% (Hz)": 469.0190630759498, "mode": "Olivia-4-500", "overhead (s)": 2.267733333333333, "speed (char/s)": 3.3303730017761985}, {"bandwidth 95% (Hz)": 1890.4027218156407, "mode": "Olivia-64-2K", "overhead (s)": 3.7269333333333337, "speed (char/s)": 2.4933510638297873}, {"bandwidth 95% (Hz)": 931.2733851404132, "mode": "Olivia-8-1K", "overhead (s)": 2.368, "speed (char/s)": 5.0}, {"bandwidth 95% (Hz)": 233.19190600522188, "mode": "Olivia-8-250", "overhead (s)": 3.3280000000000003, "speed (char/s)": 1.25}, {"bandwidth 95% (Hz)": 466.2970694002397, "mode": "Olivia-8-500", "overhead (s)": 2.688, "speed (char/s)": 2.5}, {"bandwidth 95% (Hz)": 2401.8763162933183, "mode": "PSK1000C2", "overhead (s)": 1.279896875, "speed (char/s)": 243.71667936024372}, {"bandwidth 95% (Hz)": 1090.1830691731175, "mode": "PSK1000R", "overhead (s)": 2.3294854166666665, "speed (char/s)": 68.89622506100187}, {"bandwidth 95% (Hz)": 2538.478097083199, "mode": "PSK1000RC2", "overhead (s)": 2.316742708333333, "speed (char/s)": 137.79245012200371}, {"bandwidth 95% (Hz)": 1956.6901408450713, "mode": "PSK125C12", "overhead (s)": 0.4265333333333333, "speed (char/s)": 182.9268292682927}, {"bandwidth 95% (Hz)": 138.72434219589422, "mode": "PSK125R", "overhead (s)": 4.555883333333333, "speed (char/s)": 8.612028132625232}, {"bandwidth 95% (Hz)": 1628.2874617737004, "mode": "PSK125RC10", "overhead (s)": 1.9163833333333333, "speed (char/s)": 86.0832137733142}, {"bandwidth 95% (Hz)": 1964.7295321637428, "mode": "PSK125RC12", "overhead (s)": 1.6463249999999998, "speed (char/s)": 103.35917312661499}, {"bandwidth 95% (Hz)": 2638.7814313346225, "mode": "PSK125RC16", "overhead (s)": 1.2967416666666667, "speed (char/s)": 137.7726750861079}, {"bandwidth 95% (Hz)": 622.0901436354629, "mode": "PSK125RC4", "overhead (s)": 4.402966666666667, "speed (char/s)": 34.44316877152698}, {"bandwidth 95% (Hz)": 785.9128822984244, "mode": "PSK125RC5", "overhead (s)": 3.576775, "speed (char/s)": 43.05705059203445}, {"bandwidth 95% (Hz)": 1899.9354422207875, "mode": "PSK250C6", "overhead (s)": 0.9385291666666666, "speed (char/s)": 182.7875095201828}, {"bandwidth 95% (Hz)": 276.88885938122394, "mode": "PSK250R", "overhead (s)": 4.453941666666666, "speed (char/s)": 17.224056265250468}, {"bandwidth 95% (Hz)": 604.0247678018573, "mode": "PSK250RC2", "overhead (s)": 4.402970833333334, "speed (char/s)": 34.448112530500936}, {"bandwidth 95% (Hz)": 926.6419981498611, "mode": "PSK250RC3", "overhead (s)": 3.02465, "speed (char/s)": 51.679586563307495}, {"bandwidth 95% (Hz)": 1561.5823817292005, "mode": "PSK250RC5", "overhead (s)": 3.5523875, "speed (char/s)": 86.1141011840689}, {"bandwidth 95% (Hz)": 1884.4278283485046, "mode": "PSK250RC6", "overhead (s)": 3.006325, "speed (char/s)": 103.35917312661499}, {"bandwidth 95% (Hz)": 2225.727238383075, "mode": "PSK250RC7", "overhead (s)": 2.6157041666666667, "speed (char/s)": 120.54244098442996}, {"bandwidth 95% (Hz)": 1200.523674449051, "mode": "PSK500C2", "overhead (s)": 1.27979375, "speed (char/s)": 121.85833968012186}, {"bandwidth 95% (Hz)": 2523.991507430998, "mode": "PSK500C4", "overhead (s)": 0.7678979166666667, "speed (char/s)": 243.77856780091417}, {"bandwidth 95% (Hz)": 546.1300309597527, "mode": "PSK500R", "overhead (s)": 4.402970833333334, "speed (char/s)": 34.448112530500936}, {"bandwidth 95% (Hz)": 1239.9869038524494, "mode": "PSK500RC2", "overhead (s)": 4.377485416666667, "speed (char/s)": 68.89622506100186}, {"bandwidth 95% (Hz)": 1864.596879063719, "mode": "PSK500RC3", "overhead (s)": 3.006325, "speed (char/s)": 103.35917312661499}, {"bandwidth 95% (Hz)": 2490.529487731382, "mode": "PSK500RC4", "overhead (s)": 2.3167416666666667, "speed (char/s)": 137.7726750861079}, {"bandwidth 95% (Hz)": 807.5972822730082, "mode": "PSK63RC10", "overhead (s)": 3.576766666666667, "speed (char/s)": 43.04160688665711}, {"bandwidth 95% (Hz)": 1649.144254278728, "mode": "PSK63RC20", "overhead (s)": 1.9243833333333333, "speed (char/s)": 86.08321377331421}, {"bandwidth 95% (Hz)": 2661.7504835589943, "mode": "PSK63RC32", "overhead (s)": 1.30475, "speed (char/s)": 137.93103448275863}, {"bandwidth 95% (Hz)": 309.0984057174269, "mode": "PSK63RC4", "overhead (s)": 2.4059333333333335, "speed (char/s)": 17.22158438576349}, {"bandwidth 95% (Hz)": 392.0754424091897, "mode": "PSK63RC5", "overhead (s)": 6.89755, "speed (char/s)": 21.528525296017225}, {"bandwidth 95% (Hz)": 1920.8120520194, "mode": "PSK800C2", "overhead (s)": 0.8958710937500001, "speed (char/s)": 194.97334348819498}, {"bandwidth 95% (Hz)": 1961.7091279032013, "mode": "PSK800RC2", "overhead (s)": 2.831928385416667, "speed (char/s)": 110.233960097603}, {"bandwidth 95% (Hz)": 135.7658429165649, "mode": "QPSK125", "overhead (s)": 2.3103583333333333, "speed (char/s)": 15.234226228259491}, {"bandwidth 95% (Hz)": 272.394233041834, "mode": "QPSK250", "overhead (s)": 2.3071791666666663, "speed (char/s)": 30.468452456518982}, {"bandwidth 95% (Hz)": 33.99880623272156, "mode": "QPSK31", "overhead (s)": 2.3294333333333332, "speed (char/s)": 3.8085565570648727}, {"bandwidth 95% (Hz)": 544.146935162647, "mode": "QPSK500", "overhead (s)": 2.3055895833333335, "speed (char/s)": 60.93690491303796}, {"bandwidth 95% (Hz)": 67.93275217932796, "mode": "QPSK63", "overhead (s)": 2.3167166666666668, "speed (char/s)": 7.6171131141297455}, {"bandwidth 95% (Hz)": 34.11924272393344, "mode": "THOR Micro", "overhead (s)": 26.1859375, "speed (char/s)": 0.5512489233419466}, {"bandwidth 95% (Hz)": 1700.0, "mode": "THOR100", "overhead (s)": 2.69371875, "speed (char/s)": 27.562446167097324}, {"bandwidth 95% (Hz)": 183.3905008601605, "mode": "THOR11", "overhead (s)": 6.629025520833333, "speed (char/s)": 2.9675837840093604}, {"bandwidth 95% (Hz)": 266.14299437354157, "mode": "THOR16", "overhead (s)": 4.56779296875, "speed (char/s)": 4.306501808394314}, {"bandwidth 95% (Hz)": 366.79459566191326, "mode": "THOR22", "overhead (s)": 3.314390104166667, "speed (char/s)": 5.935250130606416}, {"bandwidth 95% (Hz)": 1700.457747006175, "mode": "THOR25x4", "overhead (s)": 10.77486796875, "speed (char/s)": 6.890277710489909}, {"bandwidth 95% (Hz)": 132.99474775154613, "mode": "THOR4", "overhead (s)": 18.2712, "speed (char/s)": 1.0766580534022396}, {"bandwidth 95% (Hz)": 183.28471482521536, "mode": "THOR5", "overhead (s)": 13.257920703125, "speed (char/s)": 1.4837801385595624}, {"bandwidth 95% (Hz)": 850.2996602408598, "mode": "THOR50x1", "overhead (s)": 5.38743046875, "speed (char/s)": 13.779887823100688}, {"bandwidth 95% (Hz)": 1700.0532481363152, "mode": "THOR50x2", "overhead (s)": 5.3874375, "speed (char/s)": 13.781223083548662}, {"bandwidth 95% (Hz)": 265.99388701517637, "mode": "THOR8", "overhead (s)": 9.1356, "speed (char/s)": 2.1533161068044793}]
+[
+ {
+  "bandwidth 95% (Hz)": 1095.362897221312,
+  "mode": "8PSK1000",
+  "overhead (s)": 1.2644476263066202,
+  "speed (char/s)": 391.79215903758376
+ },
+ {
+  "bandwidth 95% (Hz)": 1088.3907125700562,
+  "mode": "8PSK1000F",
+  "overhead (s)": 1.818147212543554,
+  "speed (char/s)": 259.5523400406964
+ },
+ {
+  "bandwidth 95% (Hz)": 1315.4826958105648,
+  "mode": "8PSK1200F",
+  "overhead (s)": 2.5793695557491287,
+  "speed (char/s)": 319.4434782608696
+ },
+ {
+  "bandwidth 95% (Hz)": 143.9370324189531,
+  "mode": "8PSK125",
+  "overhead (s)": 2.0434425087108012,
+  "speed (char/s)": 48.644067796610166
+ },
+ {
+  "bandwidth 95% (Hz)": 140.20061728395058,
+  "mode": "8PSK125F",
+  "overhead (s)": 4.614898954703833,
+  "speed (char/s)": 24.330281451339435
+ },
+ {
+  "bandwidth 95% (Hz)": 137.5,
+  "mode": "8PSK125FL",
+  "overhead (s)": 4.614898954703833,
+  "speed (char/s)": 24.330281451339435
+ },
+ {
+  "bandwidth 95% (Hz)": 284.1587112171833,
+  "mode": "8PSK250",
+  "overhead (s)": 1.6017247386759583,
+  "speed (char/s)": 97.32112580535775
+ },
+ {
+  "bandwidth 95% (Hz)": 279.47305745757694,
+  "mode": "8PSK250F",
+  "overhead (s)": 3.2634529616724737,
+  "speed (char/s)": 48.66881465151772
+ },
+ {
+  "bandwidth 95% (Hz)": 273.25494865307337,
+  "mode": "8PSK250FL",
+  "overhead (s)": 3.259445993031359,
+  "speed (char/s)": 48.65231395151721
+ },
+ {
+  "bandwidth 95% (Hz)": 549.8763396537511,
+  "mode": "8PSK500",
+  "overhead (s)": 1.3768641114982578,
+  "speed (char/s)": 194.70827679782903
+ },
+ {
+  "bandwidth 95% (Hz)": 547.7064220183488,
+  "mode": "8PSK500F",
+  "overhead (s)": 2.0442926829268293,
+  "speed (char/s)": 129.74683544303795
+ },
+ {
+  "bandwidth 95% (Hz)": 1001.1034029416253,
+  "mode": "BPSK1000",
+  "overhead (s)": 0.5121778092334495,
+  "speed (char/s)": 113.35053009639239
+ },
+ {
+  "bandwidth 95% (Hz)": 125.25223407321982,
+  "mode": "BPSK125",
+  "overhead (s)": 2.305547038327526,
+  "speed (char/s)": 14.193867457962414
+ },
+ {
+  "bandwidth 95% (Hz)": 250.44413277232343,
+  "mode": "BPSK250",
+  "overhead (s)": 2.304773519163763,
+  "speed (char/s)": 28.387734915924828
+ },
+ {
+  "bandwidth 95% (Hz)": 31.25306643116437,
+  "mode": "BPSK31",
+  "overhead (s)": 2.3101881533101047,
+  "speed (char/s)": 3.548466864490603
+ },
+ {
+  "bandwidth 95% (Hz)": 500.5767012687429,
+  "mode": "BPSK500",
+  "overhead (s)": 2.3043867595818814,
+  "speed (char/s)": 56.77546983184965
+ },
+ {
+  "bandwidth 95% (Hz)": 62.57916788463399,
+  "mode": "BPSK63",
+  "overhead (s)": 2.3070940766550523,
+  "speed (char/s)": 7.096933728981207
+ },
+ {
+  "bandwidth 95% (Hz)": 69.44907253137853,
+  "mode": "BPSK63F",
+  "overhead (s)": 4.7453937282229965,
+  "speed (char/s)": 4.055046908556573
+ },
+ {
+  "bandwidth 95% (Hz)": 34.18347862183464,
+  "mode": "DOMEX Micro",
+  "overhead (s)": 9.45993031358885,
+  "speed (char/s)": 0.9614740368509213
+ },
+ {
+  "bandwidth 95% (Hz)": 132.84156676312523,
+  "mode": "DOMEX4",
+  "overhead (s)": 7.403484320557491,
+  "speed (char/s)": 1.8778789782244556
+ },
+ {
+  "bandwidth 95% (Hz)": 183.08147754161428,
+  "mode": "DOMEX5",
+  "overhead (s)": 5.372098214285714,
+  "speed (char/s)": 2.5879797583011763
+ },
+ {
+  "bandwidth 95% (Hz)": 265.71044483289006,
+  "mode": "DOMEX8",
+  "overhead (s)": 3.701736280487805,
+  "speed (char/s)": 3.7556750196085167
+ },
+ {
+  "bandwidth 95% (Hz)": 183.04011803906906,
+  "mode": "DOMX11",
+  "overhead (s)": 2.6860512848432054,
+  "speed (char/s)": 5.176017859065104
+ },
+ {
+  "bandwidth 95% (Hz)": 265.6473289616679,
+  "mode": "DOMX16",
+  "overhead (s)": 1.850865200348432,
+  "speed (char/s)": 7.511184172861921
+ },
+ {
+  "bandwidth 95% (Hz)": 366.14047933269967,
+  "mode": "DOMX22",
+  "overhead (s)": 1.34315287456446,
+  "speed (char/s)": 10.352274930451289
+ },
+ {
+  "bandwidth 95% (Hz)": 1464.6691235378946,
+  "mode": "DOMX44",
+  "overhead (s)": 0.671574368466899,
+  "speed (char/s)": 20.70366304247362
+ },
+ {
+  "bandwidth 95% (Hz)": 1464.3842689027751,
+  "mode": "DOMX88",
+  "overhead (s)": 0.33572462979094075,
+  "speed (char/s)": 41.4072327398477
+ },
+ {
+  "bandwidth 95% (Hz)": 162.8498788252109,
+  "mode": "MFSK11",
+  "overhead (s)": 9.208697844076655,
+  "speed (char/s)": 2.7938645711871155
+ },
+ {
+  "bandwidth 95% (Hz)": 1879.442792831054,
+  "mode": "MFSK128",
+  "overhead (s)": 1.3611649608013936,
+  "speed (char/s)": 32.43063819569263
+ },
+ {
+  "bandwidth 95% (Hz)": 1930.3738317757006,
+  "mode": "MFSK128L",
+  "overhead (s)": 20.225177700348432,
+  "speed (char/s)": 32.44404250508705
+ },
+ {
+  "bandwidth 95% (Hz)": 236.44245637287395,
+  "mode": "MFSK16",
+  "overhead (s)": 6.345365853658536,
+  "speed (char/s)": 4.054588607594936
+ },
+ {
+  "bandwidth 95% (Hz)": 325.7400128074851,
+  "mode": "MFSK22",
+  "overhead (s)": 4.604290614111498,
+  "speed (char/s)": 5.5878600333543655
+ },
+ {
+  "bandwidth 95% (Hz)": 231.2043774360618,
+  "mode": "MFSK31",
+  "overhead (s)": 4.219589939024391,
+  "speed (char/s)": 6.082352832095538
+ },
+ {
+  "bandwidth 95% (Hz)": 472.71924011486635,
+  "mode": "MFSK32",
+  "overhead (s)": 3.172682926829268,
+  "speed (char/s)": 8.109177215189872
+ },
+ {
+  "bandwidth 95% (Hz)": 121.01825648812837,
+  "mode": "MFSK4",
+  "overhead (s)": 20.458815331010456,
+  "speed (char/s)": 1.2671305453517945
+ },
+ {
+  "bandwidth 95% (Hz)": 944.1256830601092,
+  "mode": "MFSK64",
+  "overhead (s)": 2.370355400696864,
+  "speed (char/s)": 16.222021252543524
+ },
+ {
+  "bandwidth 95% (Hz)": 959.794040315513,
+  "mode": "MFSK64L",
+  "overhead (s)": 20.450355400696864,
+  "speed (char/s)": 16.222021252543524
+ },
+ {
+  "bandwidth 95% (Hz)": 242.04082689122015,
+  "mode": "MFSK8",
+  "overhead (s)": 10.229407665505228,
+  "speed (char/s)": 2.534261090703589
+ },
+ {
+  "bandwidth 95% (Hz)": 999.7593068035947,
+  "mode": "MT63-1KL",
+  "overhead (s)": 10.34683275261324,
+  "speed (char/s)": 8.253055355859093
+ },
+ {
+  "bandwidth 95% (Hz)": 999.7813729776999,
+  "mode": "MT63-1KS",
+  "overhead (s)": 7.14683275261324,
+  "speed (char/s)": 8.253055355859095
+ },
+ {
+  "bandwidth 95% (Hz)": 2000.0,
+  "mode": "MT63-2KL",
+  "overhead (s)": 7.15741637630662,
+  "speed (char/s)": 16.50611071171819
+ },
+ {
+  "bandwidth 95% (Hz)": 1999.9733929331633,
+  "mode": "MT63-2KS",
+  "overhead (s)": 5.55741637630662,
+  "speed (char/s)": 16.506110711718186
+ },
+ {
+  "bandwidth 95% (Hz)": 485.81824588031213,
+  "mode": "MT63-500L",
+  "overhead (s)": 16.72566550522648,
+  "speed (char/s)": 4.126527677929547
+ },
+ {
+  "bandwidth 95% (Hz)": 485.5247118794323,
+  "mode": "MT63-500S",
+  "overhead (s)": 10.32566550522648,
+  "speed (char/s)": 4.126527677929547
+ },
+ {
+  "bandwidth 95% (Hz)": 945.760071221901,
+  "mode": "Olivia-16-1K",
+  "overhead (s)": 2.777588850174216,
+  "speed (char/s)": 3.221533764367816
+ },
+ {
+  "bandwidth 95% (Hz)": 472.77744297129584,
+  "mode": "Olivia-16-500",
+  "overhead (s)": 3.507177700348432,
+  "speed (char/s)": 1.610766882183908
+ },
+ {
+  "bandwidth 95% (Hz)": 956.0432304698359,
+  "mode": "Olivia-32-1K",
+  "overhead (s)": 3.6302717770034847,
+  "speed (char/s)": 2.009128584229391
+ },
+ {
+  "bandwidth 95% (Hz)": 234.61005431745525,
+  "mode": "Olivia-4-250",
+  "overhead (s)": 2.467177700348432,
+  "speed (char/s)": 1.6107668821839078
+ },
+ {
+  "bandwidth 95% (Hz)": 468.88443107099056,
+  "mode": "Olivia-4-500",
+  "overhead (s)": 2.257588850174216,
+  "speed (char/s)": 3.2215337643678157
+ },
+ {
+  "bandwidth 95% (Hz)": 1887.7361954997664,
+  "mode": "Olivia-64-2K",
+  "overhead (s)": 3.7141184668989546,
+  "speed (char/s)": 2.416150323275862
+ },
+ {
+  "bandwidth 95% (Hz)": 931.3638937935166,
+  "mode": "Olivia-8-1K",
+  "overhead (s)": 2.3610592334494775,
+  "speed (char/s)": 4.832300646551724
+ },
+ {
+  "bandwidth 95% (Hz)": 233.06160938809717,
+  "mode": "Olivia-8-250",
+  "overhead (s)": 3.3002369337979096,
+  "speed (char/s)": 1.208075161637931
+ },
+ {
+  "bandwidth 95% (Hz)": 466.24176118304376,
+  "mode": "Olivia-8-500",
+  "overhead (s)": 2.6741184668989546,
+  "speed (char/s)": 2.416150323275862
+ },
+ {
+  "bandwidth 95% (Hz)": 2401.4828837356054,
+  "mode": "PSK1000C2",
+  "overhead (s)": 1.2795966898954705,
+  "speed (char/s)": 227.1018793273986
+ },
+ {
+  "bandwidth 95% (Hz)": 1096.516618424992,
+  "mode": "PSK1000R",
+  "overhead (s)": 2.328587108013937,
+  "speed (char/s)": 64.88075053690517
+ },
+ {
+  "bandwidth 95% (Hz)": 2541.3123265598424,
+  "mode": "PSK1000RC2",
+  "overhead (s)": 2.3162935540069687,
+  "speed (char/s)": 129.76150107381034
+ },
+ {
+  "bandwidth 95% (Hz)": 1954.7991071428569,
+  "mode": "PSK125C12",
+  "overhead (s)": 0.42613240418118464,
+  "speed (char/s)": 170.42755344418052
+ },
+ {
+  "bandwidth 95% (Hz)": 138.81442170915852,
+  "mode": "PSK125R",
+  "overhead (s)": 4.5486968641114975,
+  "speed (char/s)": 8.110093817113146
+ },
+ {
+  "bandwidth 95% (Hz)": 1629.5375435106914,
+  "mode": "PSK125RC10",
+  "overhead (s)": 1.9156655052264808,
+  "speed (char/s)": 81.07344632768361
+ },
+ {
+  "bandwidth 95% (Hz)": 1965.4967281380123,
+  "mode": "PSK125RC12",
+  "overhead (s)": 1.6457282229965156,
+  "speed (char/s)": 97.35413839891451
+ },
+ {
+  "bandwidth 95% (Hz)": 2639.0858944050433,
+  "mode": "PSK125RC16",
+  "overhead (s)": 1.2962926829268293,
+  "speed (char/s)": 129.74683544303798
+ },
+ {
+  "bandwidth 95% (Hz)": 622.4889513860994,
+  "mode": "PSK125RC4",
+  "overhead (s)": 4.401170731707317,
+  "speed (char/s)": 32.436708860759495
+ },
+ {
+  "bandwidth 95% (Hz)": 787.0393582351467,
+  "mode": "PSK125RC5",
+  "overhead (s)": 3.5753379790940767,
+  "speed (char/s)": 40.54817745125742
+ },
+ {
+  "bandwidth 95% (Hz)": 1890.4216553878186,
+  "mode": "PSK250C6",
+  "overhead (s)": 0.9381289198606271,
+  "speed (char/s)": 170.32640949554894
+ },
+ {
+  "bandwidth 95% (Hz)": 277.627244713633,
+  "mode": "PSK250R",
+  "overhead (s)": 4.4503484320557485,
+  "speed (char/s)": 16.220187634226292
+ },
+ {
+  "bandwidth 95% (Hz)": 605.57508789553,
+  "mode": "PSK250RC2",
+  "overhead (s)": 4.401174216027875,
+  "speed (char/s)": 32.440375268452584
+ },
+ {
+  "bandwidth 95% (Hz)": 929.3437453071028,
+  "mode": "PSK250RC3",
+  "overhead (s)": 3.0234494773519165,
+  "speed (char/s)": 48.660562902678876
+ },
+ {
+  "bandwidth 95% (Hz)": 1567.155756207676,
+  "mode": "PSK250RC5",
+  "overhead (s)": 3.5516689895470384,
+  "speed (char/s)": 81.09635490251485
+ },
+ {
+  "bandwidth 95% (Hz)": 1888.6038347285985,
+  "mode": "PSK250RC6",
+  "overhead (s)": 3.005724738675958,
+  "speed (char/s)": 97.32112580535775
+ },
+ {
+  "bandwidth 95% (Hz)": 2231.469849246231,
+  "mode": "PSK250RC7",
+  "overhead (s)": 2.6151916376306623,
+  "speed (char/s)": 113.52848101265823
+ },
+ {
+  "bandwidth 95% (Hz)": 1200.2105632567118,
+  "mode": "PSK500C2",
+  "overhead (s)": 1.2791933797909407,
+  "speed (char/s)": 113.55093966369931
+ },
+ {
+  "bandwidth 95% (Hz)": 2491.9327154136627,
+  "mode": "PSK500C4",
+  "overhead (s)": 0.7675975609756098,
+  "speed (char/s)": 227.14681440443215
+ },
+ {
+  "bandwidth 95% (Hz)": 550.0251130085385,
+  "mode": "PSK500R",
+  "overhead (s)": 4.401174216027875,
+  "speed (char/s)": 32.440375268452584
+ },
+ {
+  "bandwidth 95% (Hz)": 1244.3176673005526,
+  "mode": "PSK500RC2",
+  "overhead (s)": 4.376587108013938,
+  "speed (char/s)": 64.88075053690517
+ },
+ {
+  "bandwidth 95% (Hz)": 1853.902241425871,
+  "mode": "PSK500RC3",
+  "overhead (s)": 3.005724738675958,
+  "speed (char/s)": 97.32112580535775
+ },
+ {
+  "bandwidth 95% (Hz)": 2496.41962047977,
+  "mode": "PSK500RC4",
+  "overhead (s)": 2.316292682926829,
+  "speed (char/s)": 129.74683544303795
+ },
+ {
+  "bandwidth 95% (Hz)": 808.458646616541,
+  "mode": "PSK63RC10",
+  "overhead (s)": 3.575331010452962,
+  "speed (char/s)": 40.536723163841806
+ },
+ {
+  "bandwidth 95% (Hz)": 1649.1053677932405,
+  "mode": "PSK63RC20",
+  "overhead (s)": 1.9236655052264808,
+  "speed (char/s)": 81.07344632768361
+ },
+ {
+  "bandwidth 95% (Hz)": 2658.8582677165355,
+  "mode": "PSK63RC32",
+  "overhead (s)": 1.3042926829268293,
+  "speed (char/s)": 129.74683544303795
+ },
+ {
+  "bandwidth 95% (Hz)": 309.1415465268674,
+  "mode": "PSK63RC4",
+  "overhead (s)": 2.402341463414634,
+  "speed (char/s)": 16.218354430379744
+ },
+ {
+  "bandwidth 95% (Hz)": 392.87062673043056,
+  "mode": "PSK63RC5",
+  "overhead (s)": 6.894675958188153,
+  "speed (char/s)": 20.27408872562871
+ },
+ {
+  "bandwidth 95% (Hz)": 1920.3919803317285,
+  "mode": "PSK800C2",
+  "overhead (s)": 0.895495862369338,
+  "speed (char/s)": 181.68150346191888
+ },
+ {
+  "bandwidth 95% (Hz)": 1968.4346840770513,
+  "mode": "PSK800RC2",
+  "overhead (s)": 2.831366942508711,
+  "speed (char/s)": 103.80920085904826
+ },
+ {
+  "bandwidth 95% (Hz)": 136.25444412414708,
+  "mode": "QPSK125",
+  "overhead (s)": 2.305547038327526,
+  "speed (char/s)": 14.193867457962414
+ },
+ {
+  "bandwidth 95% (Hz)": 272.74427302477807,
+  "mode": "QPSK250",
+  "overhead (s)": 2.304773519163763,
+  "speed (char/s)": 28.387734915924828
+ },
+ {
+  "bandwidth 95% (Hz)": 34.06191737807876,
+  "mode": "QPSK31",
+  "overhead (s)": 2.3101881533101047,
+  "speed (char/s)": 3.548466864490603
+ },
+ {
+  "bandwidth 95% (Hz)": 545.3819536864521,
+  "mode": "QPSK500",
+  "overhead (s)": 2.3043867595818814,
+  "speed (char/s)": 56.77546983184965
+ },
+ {
+  "bandwidth 95% (Hz)": 68.12091980902278,
+  "mode": "QPSK63",
+  "overhead (s)": 2.3070940766550523,
+  "speed (char/s)": 7.096933728981207
+ },
+ {
+  "bandwidth 95% (Hz)": 34.06296048225022,
+  "mode": "THOR Micro",
+  "overhead (s)": 26.073606271777003,
+  "speed (char/s)": 0.5191046800813928
+ },
+ {
+  "bandwidth 95% (Hz)": 1700.0,
+  "mode": "THOR100",
+  "overhead (s)": 2.6914721254355403,
+  "speed (char/s)": 25.955234004069634
+ },
+ {
+  "bandwidth 95% (Hz)": 183.2781841862825,
+  "mode": "THOR11",
+  "overhead (s)": 6.608157992160279,
+  "speed (char/s)": 2.7945293679659424
+ },
+ {
+  "bandwidth 95% (Hz)": 265.9875320718934,
+  "mode": "THOR16",
+  "overhead (s)": 4.553415831881533,
+  "speed (char/s)": 4.055410400555676
+ },
+ {
+  "bandwidth 95% (Hz)": 366.5785985500179,
+  "mode": "THOR22",
+  "overhead (s)": 3.304081119337979,
+  "speed (char/s)": 5.589125062150413
+ },
+ {
+  "bandwidth 95% (Hz)": 1700.1310244461406,
+  "mode": "THOR25x4",
+  "overhead (s)": 10.765882730836237,
+  "speed (char/s)": 6.488565528223917
+ },
+ {
+  "bandwidth 95% (Hz)": 132.93755558025805,
+  "mode": "THOR4",
+  "overhead (s)": 18.213686411149826,
+  "speed (char/s)": 1.0138763282839702
+ },
+ {
+  "bandwidth 95% (Hz)": 183.20563179349438,
+  "mode": "THOR5",
+  "overhead (s)": 13.216311846689896,
+  "speed (char/s)": 1.3972566059322549
+ },
+ {
+  "bandwidth 95% (Hz)": 850.0267495681474,
+  "mode": "THOR50x1",
+  "overhead (s)": 5.382938371080139,
+  "speed (char/s)": 12.976626811768263
+ },
+ {
+  "bandwidth 95% (Hz)": 1700.0,
+  "mode": "THOR50x2",
+  "overhead (s)": 5.3829442508710805,
+  "speed (char/s)": 12.977617002034817
+ },
+ {
+  "bandwidth 95% (Hz)": 265.8751111605161,
+  "mode": "THOR8",
+  "overhead (s)": 9.106843205574913,
+  "speed (char/s)": 2.0277526565679405
+ }
+]
