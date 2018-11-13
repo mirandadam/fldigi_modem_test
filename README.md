@@ -25,8 +25,46 @@ To replicate any single data point manually on the computer you use with your ra
 * Use the "Playback" option in FLDIGI to try to decode the audio.
 * Compare the decoded text with the original test data.
 
+## Results
+
+Raw datapoints in json format: [datapoints.json](results/datapoints.json)
+
+Information about the tested modes in json format: [mode_info.json](results/mode_info.json)
+
+
+![Direct_Path](results/Direct_Path.png)
+
+
+![CCIR_520_2_Doppler_Fading](results/CCIR_520_2_Doppler_Fading.png)
+
+![CCIR_520_2_Flutter_Fading](results/CCIR_520_2_Flutter_Fading.png)
+
+![CCIR_520_2_Good_Conditions](results/CCIR_520_2_Good_Conditions.png)
+
+![CCIR_520_2_Poor_Conditions](results/CCIR_520_2_Poor_Conditions.png)
+
+
+![Low_Latitude_Disturbed](results/Low_Latitude_Disturbed.png)
+
+![Low_Latitude_Moderate](results/Low_Latitude_Moderate.png)
+
+![Mid_Latitude_Disturbed_NVIS](results/Mid_Latitude_Disturbed_NVIS.png)
+
+![Mid_Latitude_Disturbed](results/Mid_Latitude_Disturbed.png)
+
+![Mid_Latitude_Moderate](results/Mid_Latitude_Moderate.png)
+
+![Mid_Latitude_Quiet](results/Mid_Latitude_Quiet.png)
+
+![High_Latitude_Disturbed](results/High_Latitude_Disturbed.png)
+
+![High_Latitude_Moderate](results/High_Latitude_Moderate.png)
+
+![Frequency_Shifter](results/Frequency_Shifter.png)
+
 ## Caveats
 
+* At this time, test results only have one measure at the conditions of each datapoint. The error rate measured is not precisely repeatable between measurements because of the random nature of noise, more measurements are necessary to increase confidence. Be wary of outliers.
 * I recommend you run this in a virtual machine with Ubuntu 18.04.1 since custom versions of FLDIGI and linsim are needed and your FLDIGI configuration may be overwritten.
 * This script may overwrite your fldigi configuration (it is not designed to do that, but I may have missed something).
 * The behaviour of FLDIGI will be very odd during the simulations - the waterfall will freeze and the text will appear much faster than normal. This is because the scripts uses little known functionality from FLDIGI that allows coding and decoding to happen much faster than the audio output would run (namely WAV_FILE and HS:on macros).
