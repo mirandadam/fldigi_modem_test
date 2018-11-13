@@ -20,4 +20,5 @@ fn_mode_info = dn_output_folder+'mode_info.json'
 dn_results_folder = dn_local_folder+'results'+os.sep
 fn_datapoints = dn_results_folder+'datapoints.json'
 fn_mode_info = dn_results_folder+'mode_info.json'
+fn_results_md = dn_local_folder+'results.md'
 fn_simulation_templates = dn_local_folder+'simulation_templates.csv'

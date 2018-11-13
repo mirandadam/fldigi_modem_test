@@ -26,9 +26,40 @@ for d in datapoints:
     simulation_profiles[p] = simulation_profiles.get(p, []) + e
 
 # plotting the 1% point for all the profiles:
-for n in profile_names.values():
+profile_order = [
+    'Direct_Path',
+    'CCIR_520_2_Good_Conditions',
+    'CCIR_520_2_Poor_Conditions',
+    'CCIR_520_2_Doppler_Fading',
+    'CCIR_520_2_Flutter_Fading',
+    'Low_Latitude_Moderate',
+    'Low_Latitude_Disturbed',
+    'Mid_Latitude_Quiet',
+    'Mid_Latitude_Moderate',
+    'Mid_Latitude_Disturbed',
+    'Mid_Latitude_Disturbed_NVIS',
+    'High_Latitude_Moderate',
+    'High_Latitude_Disturbed',
+    'Frequency_Shifter'
+]
+assert len(set(profile_order).symmetric_difference(set(profile_names.values()))) == 0
+f = open(fn_results_md, 'w')
+f.write('### Mode information\n\n')
+f.write('| Mode | Speed (char/s) | Bandwidth 95% power (Hz) | Overhead (s) |\n')
+f.write('| ---- | -------------- | ------------------ | ------------ |\n')
+aux = []
+for m in mode_info:
+    aux.append([m['mode'], m['speed (char/s)'], m['bandwidth 95% (Hz)'], m['overhead (s)']])
+aux.sort(key=lambda x: (x[0][:3].replace('8','R'), round(x[1], 2), round(x[3], 2), x[2]))
+for m in aux:
+    f.write('| '+m[0]+' | '+str(round(m[1], 2))+' | '+str(round(m[2], 1))+' | '+str(round(m[3], 2))+' |\n')
+del aux, m
+f.write('\n')
+
+f.write('### Scatter plots\n\n')
+for n in profile_order:  # profile_names.values():
     fig = plt.figure()
-    fig.set_size_inches(10, 6)
+    fig.set_size_inches(12, 8)
     ax = plt.axes()
     plt.title('Linsim profile: '+n.replace('_', ' '))
     ax.set_xscale('linear')
@@ -54,7 +85,7 @@ for n in profile_names.values():
             #print('Mode unable to decode with required accuracy:')
             #print('', (p[0], n, speed, cut_point))
             continue
-        #if 'THOR11' == p[0]:
+        # if 'THOR11' == p[0]:
         #    print('', (p[0], n, speed, cut_point))
         point_set.append((speed, cut_point, p[0]))
         ax.scatter(cut_point, speed)
@@ -75,14 +106,21 @@ for n in profile_names.values():
                 point_set[i+1][1] == point_set[i][1]):
                 # we also add equal points to the pareto set
             pareto_set[i+1] = pareto_set[i]
-    print('')
-    print(n)
-    print('')
-    print("Modes in the pareto frontier:")
-    print('')
-    print('| Mode | Speed (cps) | S/N 1% |')
-    print('| ---- | ----------- | ------ |')
-    for aux in [point_set[i] for i in np.where(pareto_set)[0]]:
-        print('|', aux[2], '|', round(aux[0], 1), '|', round(aux[1], 1), '|')
+
     fig.savefig(dn_results_folder+n+'.png')
+
+    f.write('#### Linsim profile: '+n.replace('_', ' ')+'\n\n')
+    f.write('---\n\n')
+    f.write('!['+n+'](results/'+n+'.png)\n\n')
+    f.write('Modes in the pareto frontier:\n\n')
+    f.write('| Mode | Speed (cps) | S/N 1% |\n')
+    f.write('| ---- | ----------- | ------ |\n')
+    for aux in [point_set[i] for i in np.where(pareto_set)[0]]:
+        f.write('| '+aux[2] +
+                ' | '+str(round(aux[0], 2)) +
+                ' | '+str(round(aux[1], 2)) +
+                ' |\n')
+    f.write('\n')
+
+f.close()
 plt.show()
