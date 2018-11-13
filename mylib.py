@@ -389,10 +389,16 @@ def suggest_samples(snr_list, error_rate_list, target_error, db_interval):
         b = error[i+1]
         if max(a, b) > target_error and min(a, b) < target_error:
             # if we found a crossing point
-            if abs(snr[i]-snr[i+1]) > db_interval:
+            x1 = snr[i]
+            x2 = snr[i+1]
+            slope = (b-a)/(x2-x1)
+            x = x1+((target_error-a)/slope)  # new suggested sampling point
+            x = max(x, x1+db_interval/2.)  # do not plot it too close to x1
+            x = min(x, x2-db_interval/2.)  # do not plot it too close to x2
+            if x > x1 and x < x2:  # abs(snr[i]-snr[i+1]) > db_interval:
                 # if the interval is large enough, insert another sample
-                new_snr = (snr[i]+snr[i+1])/2.
-                new_snrs.append(new_snr)
+                #new_snr = (snr[i]+snr[i+1])/2.
+                new_snrs.append(x)
     if error[-1] > target_error:
         # if even the best snr is too bad, try with a better one.
         new_snr = snr[-1]+8
