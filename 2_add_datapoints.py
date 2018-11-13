@@ -3,6 +3,10 @@ import numpy as np
 import json
 import mylib as t
 
+print('OBSOLETE! use 2.1 instead!')
+import sys
+sys.exit(1)
+
 from myconf import *  # dn_results_folder, fn_simulation_templates, fn_test_message,
 
 datapoints = [i for i in
