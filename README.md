@@ -128,6 +128,7 @@ Information about the tested modes in json format: [mode_info.json](results/mode
 Direct_Path
 
 Modes in the pareto frontier:
+
 | Mode | Speed (cps) | S/N 1% |
 | ---- | ----------- | ------ |
 | 8PSK1000 | 391.8 | 10.7 |
@@ -164,6 +165,7 @@ Modes in the pareto frontier:
 CCIR_520_2_Doppler_Fading
 
 Modes in the pareto frontier:
+
 | Mode | Speed (cps) | S/N 1% |
 | ---- | ----------- | ------ |
 | PSK125RC16 | 129.7 | 8.0 |
@@ -187,6 +189,7 @@ Modes in the pareto frontier:
 CCIR_520_2_Flutter_Fading
 
 Modes in the pareto frontier:
+
 | Mode | Speed (cps) | S/N 1% |
 | ---- | ----------- | ------ |
 | PSK125RC16 | 129.7 | 9.7 |
@@ -215,6 +218,7 @@ Modes in the pareto frontier:
 CCIR_520_2_Good_Conditions
 
 Modes in the pareto frontier:
+
 | Mode | Speed (cps) | S/N 1% |
 | ---- | ----------- | ------ |
 | 8PSK1000F | 259.6 | 12.0 |
@@ -235,6 +239,7 @@ Modes in the pareto frontier:
 Mid_Latitude_Moderate
 
 Modes in the pareto frontier:
+
 | Mode | Speed (cps) | S/N 1% |
 | ---- | ----------- | ------ |
 | PSK125RC16 | 129.7 | 4.6 |
@@ -251,6 +256,7 @@ Modes in the pareto frontier:
 CCIR_520_2_Poor_Conditions
 
 Modes in the pareto frontier:
+
 | Mode | Speed (cps) | S/N 1% |
 | ---- | ----------- | ------ |
 | PSK125RC16 | 129.7 | 5.6 |
@@ -267,9 +273,11 @@ Modes in the pareto frontier:
 | Olivia-16-500 | 1.6 | -12.4 |
 | MFSK4 | 1.3 | -15.6 |
 
+
 Frequency_Shifter
 
 Modes in the pareto frontier:
+
 | Mode | Speed (cps) | S/N 1% |
 | ---- | ----------- | ------ |
 | DOMX88 | 41.4 | 9.9 |
@@ -282,6 +290,7 @@ Modes in the pareto frontier:
 High_Latitude_Disturbed
 
 Modes in the pareto frontier:
+
 | Mode | Speed (cps) | S/N 1% |
 | ---- | ----------- | ------ |
 | MFSK64L | 16.2 | -4.1 |
@@ -297,6 +306,7 @@ Modes in the pareto frontier:
 High_Latitude_Moderate
 
 Modes in the pareto frontier:
+
 | Mode | Speed (cps) | S/N 1% |
 | ---- | ----------- | ------ |
 | PSK63RC20 | 81.1 | 15.9 |
@@ -317,6 +327,7 @@ Modes in the pareto frontier:
 Low_Latitude_Disturbed
 
 Modes in the pareto frontier:
+
 | Mode | Speed (cps) | S/N 1% |
 | ---- | ----------- | ------ |
 | MFSK64 | 16.2 | -3.1 |
@@ -333,6 +344,7 @@ Modes in the pareto frontier:
 Low_Latitude_Moderate
 
 Modes in the pareto frontier:
+
 | Mode | Speed (cps) | S/N 1% |
 | ---- | ----------- | ------ |
 | PSK125RC16 | 129.7 | 9.0 |
@@ -355,6 +367,7 @@ Modes in the pareto frontier:
 Mid_Latitude_Quiet
 
 Modes in the pareto frontier:
+
 | Mode | Speed (cps) | S/N 1% |
 | ---- | ----------- | ------ |
 | PSK500C4 | 227.1 | 15.0 |
@@ -379,6 +392,7 @@ Modes in the pareto frontier:
 Mid_Latitude_Disturbed
 
 Modes in the pareto frontier:
+
 | Mode | Speed (cps) | S/N 1% |
 | ---- | ----------- | ------ |
 | PSK125RC16 | 129.7 | 6.5 |
@@ -400,6 +414,7 @@ Modes in the pareto frontier:
 Mid_Latitude_Disturbed_NVIS
 
 Modes in the pareto frontier:
+
 | Mode | Speed (cps) | S/N 1% |
 | ---- | ----------- | ------ |
 | PSK63RC20 | 81.1 | 9.2 |

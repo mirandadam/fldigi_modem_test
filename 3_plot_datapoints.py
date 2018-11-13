@@ -79,6 +79,7 @@ for n in profile_names.values():
     print(n)
     print('')
     print("Modes in the pareto frontier:")
+    print('')
     print('| Mode | Speed (cps) | S/N 1% |')
     print('| ---- | ----------- | ------ |')
     for aux in [point_set[i] for i in np.where(pareto_set)[0]]:
