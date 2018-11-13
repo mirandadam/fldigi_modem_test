@@ -34,7 +34,7 @@ for n in profile_names.values():
     ax.set_xscale('linear')
     ax.set_xlabel(
         'Signal to noise ratio in dB where error rate is 1%\n'
-        'Modes not displayed where unable to decode with 1% or better error rate.\n'
+        'Modes not displayed were unable to decode with 1% or better error rate.\n'
         'Test message has 712 characters in pt-BR language (t2_cancao_do_exilio.txt).',
     )
     fig.subplots_adjust(bottom=0.15)
